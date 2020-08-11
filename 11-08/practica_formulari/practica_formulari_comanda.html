@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pràctica comanda</title>
+    </head>
+    <body>
+        <h1>Pizzes a domicili</h1>
+        <form>
+            <table width="80%" height="400" align="center" border="1">
+                <tr>
+                    <td align="center">
+                        <label for="nom">Nom: </label><br>
+                        <label for="adresa">Adreça: </label><br>
+                        <label for="num_telefon">Telèfon: </label><br>
+                        <label for="email">E-mail: </label><br>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" name="nom" id="nom" placeholder="Nom"><br>
+                        <input type="text" name="adresa" id="adresa" placeholder="Adreça"><br>
+                        <input type="tel" name="num_telefon" id="num_telefon" placeholder="Número de telèfon"><br>
+                        <input type="email" name="email" id="email" placeholder="Correu electrònic"><br>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <th align="center"><label>Quantitat</label></th>
+                    <th align="center"><label>Producte</label></th>
+                    <th align="center"><label>Import</label></th>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select name="quantitat_1">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <select name="producte_1">
+                            <option value=""></option>
+                            <option value="formatge">Formatge</option>
+                            <option value="olives">Olives</option>
+                            <option value="pernil_dols">Pernil Dolç</option>
+                            <option value="foie">Foie</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="poma">Poma</option>
+                            <option value="ou">Ou</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select name="quantitat_2">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <select name="producte_2">
+                            <option value=""></option>
+                            <option value="formatge">Formatge</option>
+                            <option value="olives">Olives</option>
+                            <option value="pernil_dols">Pernil Dolç</option>
+                            <option value="foie">Foie</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="poma">Poma</option>
+                            <option value="ou">Ou</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select name="quantitat_3">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <select name="producte_3">
+                            <option value=""></option>
+                            <option value="formatge">Formatge</option>
+                            <option value="olives">Olives</option>
+                            <option value="pernil_dols">Pernil Dolç</option>
+                            <option value="foie">Foie</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="poma">Poma</option>
+                            <option value="ou">Ou</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <select name="quantitat_4">
+                            <option value=""></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                        </select>
+                    </td>
+                    <td align="center">
+                        <select name="producte_4">
+                            <option value=""></option>
+                            <option value="formatge">Formatge</option>
+                            <option value="olives">Olives</option>
+                            <option value="pernil_dols">Pernil Dolç</option>
+                            <option value="foie">Foie</option>
+                            <option value="bacon">Bacon</option>
+                            <option value="poma">Poma</option>
+                            <option value="ou">Ou</option>
+                        </select>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" align="right">Total</td>
+                    <td align="center">&nbsp;</td>
+                </tr>
+            </table>
+            &nbsp;
+            <table width="80%" height="200" align="center">
+                <tr><td>PAGAMENT</td></tr>
+                <tr><td><input type="radio" name="pagament" value="contra_reembolso" id="contra_reembolso"><label for="contra_reembolso"> Contra reembolso</label></td></tr>
+                <tr><td><input type="radio" name="pagament" value="visa" id="visa"><label for="visa"> VISA</label></td></tr>
+                <tr><td><input type="radio" name="pagament" value="paypal" id="paypal"><label for="paypal"> PAYPAL</label></td></tr>
+                <tr><td></td></tr>
+                <tr><td><input type="checkbox" name="checkbox_privacitat" id="checkbox_privacitat"><label for="checkbox_privacitat"> Estic d'acord en no denunciar a l'empresa i, en el cas de fer-ho, els donaré un paquet de pernil salat com a compensació.</label></td></tr>
+                <tr><td><input type="submit" name="boto_enviar_comanda" id="boto_enviar_comanda" value="Enviar la comanda" >
+            </table>
+           
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pràctica de formularis</title>
+    </head>
+    <body>
+        <form>
+            <label for="nom">Nom: </label><input style="border-radius: 0; border:1px solid black;" type="text" placeholder="Nom" id="nom" size="20" name="nom" ><br>
+            Cognoms: <input type="text" style="border-radius: 0; border:1px solid black;" placeholder="Cognoms" size="50" name="cognoms" id="cognoms"><br>
+            Edat: <input type="number" style="border-radius: 0; border:1px solid black;" placeholder="Edat" size="5" name="edat" id="edat" min="1" max="150"><br>
+            Contrassenya: <input type="password" placeholder="Contrassenya" style="border-radius: 0; border:1px solid black;" size="20" name="contrassenya" id="contrassenya"><br>
+            Data de naixement <input type="date" name="data_naixement" id="data_naixement" style="border-radius: 0; border:1px solid black;" min="2020-08-15" max="2020-08-16"><br>
+            Horari de la visita: <input type="datetime-local" name="horari_visita" id="horari_visita" style="border-radius: 0; border:1px solid black;" min="2020-08-15T00:00:00.00" max="2020-08-16T23:00:00.00"><br>
+            Color: <input type="color" name="color" id="color" style="border-radius: 0; border:1px solid black;"><br>
+            E-mail: <input type="url" style="border-radius: 0; border:1px solid black;" placeholder="E-mail" name="e-mail" id="e-mail"><br>
+            Comentaris:<br>
+            <textarea name="comentaris" id="comentaris" style="border-radius: 0; border:1px solid black;" cols="100" rows="10"></textarea><br>
+            Horari: <br>
+            <input type="radio" name="horari" id="horari_mati"><label for="horari_mati"> Horari de matí - de 9:00 a 13:00</label><br>
+            <input type="radio" name="horari" id="horari_tarda"><label for="horari_tarda"> Horari de tarda - de 14:00 a 18:00</label><br>
+            <input type="radio" name="horari" id="horari_nit"><label for="horari_nit"> Horari de matí - de 19:00 a 23:00</label><br>
+            Dia setmana: <br>
+            <select name="dia_setmana" id="dia_setmana" style="border-radius: 0; border:1px solid black;">
+                <option value="dilluns">Dilluns</option>
+                <option value="dimarts">Dimarts</option>
+                <option value="dimecres">Dimecres</option>
+            </select><br>
+            <input type="checkbox" style="border-radius: 0; border:1px solid black;" name="checkbox_privacitat" id="checkbox_privacitat"><label for="checkbox_privacitat"> Estic d'acord amb la <a href="" target="_blank" style="text-decoration: none; color:black;"><b>política de privacitat</b><a></a></label><br>
+            <input type="submit" value="Enviar formulari" name="boto_enviar" id="boto_enviar">
+         
+            
+        </form>
+
+    </body>
+</html>

@@ -11,8 +11,10 @@
             color: white;
             font-size: 12pt;
             font-family:Helvetica;
-
             }
+        tr, th, td, table{
+            border:1px solid white;
+        }
         th{
             color: yellow;
         }
@@ -21,11 +23,22 @@
             font-size: 16pt;
 
         }
-
+        .mida_columna{
+            height:60px;
+        }
+        tr:nth-child(even){
+            background-color: green;
+        }
+        tr:nth-child(odd){
+            background-color: rgb(107, 211, 93);
+        }
+        tr:first-child{
+            background-color: rgb(107, 211, 93);
+        }
     </style>
 </head>
 <body>
-    <table width="90%" height="1000" border="1">
+    <table width="90%" height="1000">
         <!-- <colgroup>
             <col style="color:yellow;" class="ressaltar"></col>
             <col class="ressaltar"></col>
@@ -41,16 +54,16 @@
             <col class="ressaltar"></col>
         </colgroup> -->
         <thead>
-            <tr>
+            <tr class="mida_columna">
                 <th colspan="12">VENDES 2019-2020</th>
             </tr>
-            <tr>
+            <tr class="mida_columna">
                 <th colspan="2" rowspan="2">&nbsp;</th>
                 <th colspan="4">2019</th>
                 <th colspan="4">2020</th>
                 <th colspan="2">&nbsp;</th>
             </tr>
-            <tr>
+            <tr class="mida_columna">
                 <th>Primavera</th>
                 <th>Estiu</th>
                 <th>Tardor</th>

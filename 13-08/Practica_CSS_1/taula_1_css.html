@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<head>
+    <title>Practica taula css</title>
+    <meta name="author" content="Daniel Morales">
+    <style>
+        table{
+            margin:auto;
+            text-align: center;
+            background-color: green;
+            margin-top: 70px;
+            color: white;
+            font-size: 12pt;
+            font-family:Helvetica;
+
+            }
+        th{
+            color: yellow;
+        }
+        .total{
+            font-weight: bold;
+            font-size: 16pt;
+
+        }
+
+    </style>
+</head>
+<body>
+    <table width="90%" height="1000" border="1">
+        <!-- <colgroup>
+            <col style="color:yellow;" class="ressaltar"></col>
+            <col class="ressaltar"></col>
+            <col></col>
+            <col></col>
+            <col></col>
+            <col class="ressaltar"></col>
+            <col></col>
+            <col></col>
+            <col></col>
+            <col></col>
+            <col class="ressaltar"></col>
+            <col class="ressaltar"></col>
+        </colgroup> -->
+        <thead>
+            <tr>
+                <th colspan="12">VENDES 2019-2020</th>
+            </tr>
+            <tr>
+                <th colspan="2" rowspan="2">&nbsp;</th>
+                <th colspan="4">2019</th>
+                <th colspan="4">2020</th>
+                <th colspan="2">&nbsp;</th>
+            </tr>
+            <tr>
+                <th>Primavera</th>
+                <th>Estiu</th>
+                <th>Tardor</th>
+                <th>Hivern</th>
+                <th>Primavera</th>
+                <th>Estiu</th>
+                <th>Tardor</th>
+                <th>Hivern</th>
+                <th>Total per botiga</th>
+                <th>Total per província</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">Barcelona</td>
+                <td>Barcelona</td>
+                <td>845</td>
+                <td>395</td>
+                <td>190</td>
+                <td>400</td>
+                <td>823</td>
+                <td>425</td>
+                <td>253</td>
+                <td>334</td>
+                <td>3665</td>
+                <td class="total" rowspan="3">9249</td>
+            </tr>
+            <tr>
+                <td>Badalona</td>
+                <td>812</td>
+                <td>331</td>
+                <td>120</td>
+                <td>240</td>
+                <td>796</td>
+                <td>312</td>
+                <td>146</td>
+                <td>253</td>
+                <td>3010</td>
+            </tr>
+            <tr>
+                <td>Mataró</td>
+                <td>768</td>
+                <td>257</td>
+                <td>92</td>
+                <td>113</td>
+                <td>784</td>
+                <td>300</td>
+                <td>114</td>
+                <td>146</td>
+                <td>2574</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="3">Girona</td>
+                <td>Girona</td>
+                <td>845</td>
+                <td>395</td>
+                <td>190</td>
+                <td>400</td>
+                <td>823</td>
+                <td>425</td>
+                <td>253</td>
+                <td>334</td>
+                <td>3665</td>
+                <td class="total" rowspan="3">9249</td>
+            </tr>
+            <tr>
+                <td>Fornells</td>
+                <td>812</td>
+                <td>331</td>
+                <td>120</td>
+                <td>240</td>
+                <td>796</td>
+                <td>312</td>
+                <td>146</td>
+                <td>253</td>
+                <td>3010</td>
+            </tr>
+            <tr>
+                <td>Mont-Ras</td>
+                <td>768</td>
+                <td>257</td>
+                <td>92</td>
+                <td>113</td>
+                <td>784</td>
+                <td>300</td>
+                <td>114</td>
+                <td>146</td>
+                <td>2574</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="3">Tarragona</td>
+                <td>Tarragona</td>
+                <td>845</td>
+                <td>395</td>
+                <td>190</td>
+                <td>400</td>
+                <td>823</td>
+                <td>425</td>
+                <td>253</td>
+                <td>334</td>
+                <td>3665</td>
+                <td class="total" rowspan="3">9249</td>
+            </tr>
+            <tr>
+                <td>L'Ampolla</td>
+                <td>812</td>
+                <td>331</td>
+                <td>120</td>
+                <td>240</td>
+                <td>796</td>
+                <td>312</td>
+                <td>146</td>
+                <td>253</td>
+                <td>3010</td>
+            </tr>
+            <tr>
+                <td>Deltebre</td>
+                <td>768</td>
+                <td>257</td>
+                <td>92</td>
+                <td>113</td>
+                <td>784</td>
+                <td>300</td>
+                <td>114</td>
+                <td>146</td>
+                <td>2574</td>
+            </tr>
+            
+            <tr>
+                <td rowspan="3">Lleida</td>
+                <td>Lleida</td>
+                <td>845</td>
+                <td>395</td>
+                <td>190</td>
+                <td>400</td>
+                <td>823</td>
+                <td>425</td>
+                <td>253</td>
+                <td>334</td>
+                <td>3665</td>
+                <td class="total" rowspan="3">9249</td>
+            </tr>
+            <tr>
+                <td>Torregrossa</td>
+                <td>812</td>
+                <td>331</td>
+                <td>120</td>
+                <td>240</td>
+                <td>796</td>
+                <td>312</td>
+                <td>146</td>
+                <td>253</td>
+                <td>3010</td>
+            </tr>
+            <tr>
+                <td>Linyola</td>
+                <td>768</td>
+                <td>257</td>
+                <td>92</td>
+                <td>113</td>
+                <td>784</td>
+                <td>300</td>
+                <td>114</td>
+                <td>146</td>
+                <td>2574</td>
+            </tr>
+            
+            
+            <tr>
+                <td colspan="2">Total per temporada</td>
+                <td>9700</td>
+                <td>3932</td>
+                <td>1608</td>
+                <td>4620</td>
+                <td>9612</td>
+                <td>4148</td>
+                <td>2052</td>
+                <td>2932</td>
+                <td colspan="2" rowspan="2"></td>
+                
+            </tr>
+            <tr>
+                <td colspan="2">Total anual</td>
+                <td colspan="4">19860</td>
+                <td colspan="4">18744</td>
+            </tr>
+            <tr>
+                <td colspan="2">Total</td>
+                <td colspan="9">&nbsp;</td>
+                <td class="total">36996</td>
+            </tr>
+            
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+</body>

@@ -46,9 +46,15 @@ ul{
 }
 #cos{
     padding:5px 25px;
-    margin:0 200px 0 190px;
+    margin:0 194px 0 190px;
     position:relative;
-    line-height: 1.4;
+    line-height: 1.5;
+}
+#cos h1{
+    margin:21px 0 10px 0;
+}
+#cos>p{
+    margin-top:10px;
 }
 #menu_lateral_dret{
     width: 180px;
@@ -56,17 +62,36 @@ ul{
     background-color:#32a4e7;
     border-radius: 5px;
     color:white;
-    padding:30px 10px 35px 10px;
+    padding:29px 10px 25px 10px;
 }
 #menu_lateral_dret h3{
-    margin: 0;
-    line-height: 1.4;
+    margin: 0 0 20px 0;
 }
 #menu_lateral_dret p{
-    margin: 15px 0 0 0;
-    line-height: 1.6;
+    line-height: 1.65;
 }
 
 .wrapper{
     position: static;
+}
+footer{
+    background-color: #f1f1f1;
+    border: 1px solid #d4d4d4;
+    font-size: 70%;
+    line-height:;
+    padding:13px;
+    margin: 8px 0;
+}
+footer p{
+    margin:0;
+    text-align: center;
+}
+#menu_lateral_esquerra #sts1{
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+a{
+    text-decoration: none;
+    color:black;
 }

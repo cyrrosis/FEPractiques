@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica position 2</title>
+        <meta name="author" content="uptivya">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+        <style> 
+            body{
+                margin:0px;
+                background-image: url(img/marbre.jpg);
+                font-family: "Oswald";
+            }
+            h1{
+                position:absolute;
+                display:block;
+                top: 50%;
+                width:100%;
+                text-align: center;
+                margin-top:-85px;
+                padding:0;
+                font-size: 150px;
+                color:white;
+                line-height: 100%;
+                text-shadow:4px 4px 10px lightgrey;
+            }
+            .pestanyes_top{
+                width:300px;
+                height:300px;
+                position:fixed;
+                top:-260px;
+                border-radius: 0 0 20px 20px;
+                transition:.6s;
+            }
+            .pestanyes_top:hover{
+                top:0px;
+            }
+            #pestanya_top_1{
+                background-color: tomato;
+                left:200px;
+            }
+            #pestanya_top_2{
+                background-color: teal;
+                left: 50%;
+                margin-left:-150px;
+            }
+            #pestanya_top_3{
+                background-color: yellow;
+                right:200px;
+            }
+            img{
+                height: 200px;
+                margin: 50px auto;
+                display:block;
+                border-radius: 5px;
+            }
+            .pestanyes_left{
+                width:300px;
+                height:300px;
+                position:fixed;
+                left:-260px;
+                border-radius: 0 20px 20px 0;
+                transition: .6s;
+            }
+            #pestanya_left_1{
+                background-color:salmon;
+                top:200px;
+            }
+            #pestanya_left_2{
+                background-color:mediumspringgreen;
+                bottom: 200px;
+            }
+            .pestanyes_left:hover{
+                left:0px;
+            }
+            .pestanyes_bot{
+                width:300px;
+                height:300px;
+                position:fixed;
+                bottom:-260px;
+                border-radius: 20px 20px 0 0;
+                transition: .6s;
+            }
+            .pestanyes_bot:hover{
+                bottom:0px;
+            }
+            #pestanya_bot_1{
+                background-color:orange;
+                left:200px;
+            }
+            #pestanya_bot_1 img{
+                width:280px;
+            }
+            #pestanya_bot_2{
+                background-color:aqua;
+                left: 50%;
+                margin-left:-150px;
+            }
+            #pestanya_bot_3{
+                background-color:crimson;
+                right:200px;
+            }
+            .pestanyes_right{
+                width:300px;
+                height:300px;
+                position:fixed;
+                right:-260px;
+                border-radius: 20px 0 0 20px;
+                transition: .6s;
+            }
+            #pestanya_right_1{
+                background-color:darkviolet;
+                top:200px;
+            }
+            #pestanya_right_1 img{
+                width:220px;
+                height:auto;
+                margin: 80px auto;
+            }
+            #pestanya_right_2{
+                background-color:green;
+                bottom: 200px;
+            }
+            .pestanyes_right:hover{
+                right:0px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>CHOOSE THE CAT MEME</h1>
+        <div id="pestanya_top_1" class="pestanyes_top"><img src="img/memegat_1.jpg" alt="meme gat"> </div>
+        <div id="pestanya_top_2" class="pestanyes_top"><img src="img/memegat_2.png" alt="meme gat"></div>
+        <div id="pestanya_top_3" class="pestanyes_top"><img src="img/memegat_3.jpg" alt="meme gat"></div>
+        <div id="pestanya_left_1" class="pestanyes_left"><img src="img/memegat_4.jpg" alt="meme gat"> </div>
+        <div id="pestanya_left_2" class="pestanyes_left"><img src="img/memegat_5.jpg" alt="meme gat"></div>
+        <div id="pestanya_bot_1" class="pestanyes_bot"><img src="img/memegat_6.jpg" alt="meme gat"> </div>
+        <div id="pestanya_bot_2" class="pestanyes_bot"><img src="img/memegat_7.jpg" alt="meme gat"></div>
+        <div id="pestanya_bot_3" class="pestanyes_bot"><img src="img/memegat_8.jpg" alt="meme gat"></div>
+        <div id="pestanya_right_1" class="pestanyes_right"><img src="img/memegat_9.jpg" alt="meme gat"> </div>
+        <div id="pestanya_right_2" class="pestanyes_right"><img src="img/memegat_10.jpg" alt="meme gat"></div>
+    </body>
+</html>

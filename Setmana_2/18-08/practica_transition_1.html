@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica transicio</title>
+        <meta name="author" content="uptivya">
+        <style>
+            body{
+                margin:0px;
+            }
+            #container{
+                width:800px;
+                height:528px;
+                background-image: url(img/memegat_6.jpg);
+                background-size:100%;
+                position:absolute;
+                top: 50%;
+                left:50%;
+                margin-top:-264px;
+                margin-left:-400px;
+            }
+            .capes{
+                background-color: white;
+                border:5px dashed lightslategray;
+                height:254px;
+                width:390px;
+                position:absolute;
+                z-index: 10;
+                transition: 1s ease;
+            }
+            #capa1{
+                right:50%;
+                bottom:50%;
+            }
+            #capa2{
+                left:50%;
+                bottom:50%;
+            }
+            #capa3{
+                right:50%;
+                top:50%;
+            }
+            #capa4{
+                left:50%;
+                top:50%;
+            }
+            #capa1:hover{
+                right:60%;
+                bottom:60%;
+            }
+            #capa2:hover{
+                left:60%;
+                bottom:60%;
+            }
+            #capa3:hover{
+                right:60%;
+                top:60%;
+            }
+            #capa4:hover{
+                left:60%;
+                top:60%;
+            }
+            
+
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="capes" id="capa1"></div>
+        <div class="capes" id="capa2"></div>
+        <div class="capes" id="capa3"></div>
+        <div class="capes" id="capa4"></div>
+        <div id="container"></div>
+    </body>
+</html>

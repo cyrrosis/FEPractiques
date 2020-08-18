@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica position</title>
+        <meta name="author" content="uptivya">
+        <style type="text/css">
+            #container{
+                width:300px;
+                background-color: rgb(190, 233, 233);
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .prod{
+                width:100px;
+                margin:10px 0 0 10px;
+                background-color: rgb(255, 207, 119);
+                line-height: 150%;
+                font-size:40px;
+            }
+            #oferta{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div class="prod">A</div>
+            <div class="prod">B<br>B</div>
+            <div class="prod">C<br>C<br>C</div>
+            <div id="oferta" class="prod">D</div>
+            <div class="prod">E</div>
+        </div>
+
+    </body>
+</html>

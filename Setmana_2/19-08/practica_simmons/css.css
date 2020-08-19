@@ -1,0 +1,67 @@
+@font-face{
+	font-family: "Museo";
+	src: url(font/museo/museo300-Regular.otf);
+}
+@font-face{
+	font-family: "Museo_bold";
+	src: url(font/museo/museo700-Regular.otf);
+}
+body{
+    margin:0;
+    font-family: "Museo", Helvetica, sans-serif;
+}
+#header{
+    background-color: #003A70;
+    height:140px;
+}
+#header_content{
+    width:1300px;
+    margin:0 auto;
+    height:140px;
+}
+
+#header li a{
+    color:white;
+    text-decoration: none;
+}
+.header_block{
+    position:relative;
+    float:left;
+    height:140px;
+}
+.header_block ul{
+    padding:0;
+    margin:0;
+}
+#menu{
+    width:84%;
+}
+#logotip_header{
+    margin: 40px 0;
+}
+.navegador{
+    display:flex;
+    justify-content: flex-end;
+}
+.navegador li{
+    list-style: none;
+    display:inline-block;
+}
+#navegador_1{
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+#navegador_1 li{
+    padding: 22px 18px 30px;
+}
+#navegador_2{
+    font-size: 18px;
+    font-family: "Museo_bold", Helvetica, sans-serif;
+}
+#navegador_2 li{
+    border-top: 2px solid #34618B;
+    padding: 26px 28px 20px;
+}
+.fas{
+    color:#e8b526;
+}

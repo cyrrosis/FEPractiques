@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica imatges fons</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <style>
+            #dins{
+                width:100%;
+                height:100%;   
+                background-image:url(img/memegat_2.png);
+                opacity: 0;
+                background-size:cover;
+                transition: 1s;
+            }
+            #fora{
+                position:absolute;
+                width:400px;
+                height:400px;
+                top:100px;
+                left:100px;
+                transition: 1s;
+            }
+            #dins:hover{
+
+                opacity: 1;
+            }
+            #fora:hover{
+                cursor:pointer;
+                top:85px;
+                left:85px;
+                box-shadow: 15px 15px  rgba(0, 0, 0, 0.089);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="fora"><a href="https://9gag.com/tag/cat" target="_blank"><div id="dins"></div></a></div>
+    </body>
+</html>

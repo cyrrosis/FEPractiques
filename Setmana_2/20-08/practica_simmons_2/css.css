@@ -10,6 +10,10 @@
     font-family: "Museo_sans_500";
     src: url(font/museo_sans/Museo_sans_500.otf)
 }
+@font-face{
+    font-family: "Museo_sans_300";
+    src: url(font/museo_sans/Museo_sans_300.otf)
+}
 a{
     text-decoration: none;
 }
@@ -21,6 +25,29 @@ body{
     font-family: "Museo", Helvetica, sans-serif;
     font-size: 14px;
 }
+:root{
+    --m:"Museo", Helvetica, sans-serif;
+}
+:root{
+    --mb:"Museo_bold", Helvetica, sans-serif;
+}
+:root{
+    --ms5:"Museo_sans_500", Helvetica, sans-serif;
+}
+:root{
+    --ms3:"Museo_sans_300", Helvetica, sans-serif;
+}
+
+/*
+
+__________________________________________________________________________________________________________
+
+HEADER
+
+*/
+
+
+
 #header_gran{
     background-color: #003A70;
     height:140px;
@@ -92,7 +119,7 @@ i.fa-chevron-left{
 }
 #navegador_2{
     font-size: 18px;
-    font-family: "Museo_bold", Helvetica, sans-serif;
+    font-family: var(--mb);
 }
 #navegador_2 li{
     border-top: 2px solid #34618B;
@@ -110,6 +137,7 @@ i.fa-chevron-left{
 #container_breadcrumbs{
     background-color:#e6f1fc;
     height:81px;
+    margin-bottom:62px;
 }
 #breadcrumbs{
     height:81px;
@@ -123,7 +151,7 @@ i.fa-chevron-left{
     display:inline-block;
 }
 #breadcrumbs a, #breadcrumbs p{
-    font-family: "Museo_sans_500";
+    font-family: var(--ms5);
 }
 #breadcrumbs a, #breadcrumbs p, #breadcrumbs i{
     margin:0 20px 0 0;
@@ -141,6 +169,62 @@ i.fa-chevron-left{
 #breadcrumbs a:visited{
     color:#0a60b0;
 }
+
+/*_________________________________________________________________________________________________
+
+TITOL
+
+*/
+
+.container{
+    width:1160px;
+    margin:0 auto;
+    padding:0 20px;
+}
+#titol_academics h1{
+    margin:0 0 32px;
+    font-size:42px;
+    font-family:var(--mb);
+}
+
+#titol_academics p{
+    margin:0;
+    font-size:24px;
+    font-family:var(--ms3);
+    line-height: 1.5;
+    width:860px;
+    position: relative;
+}
+#titol_academics{
+    margin-bottom: 60px;
+}
+#banner_1{
+    width:100%;
+    object-fit: cover;
+}
+
+#banner_1_petit{
+    width:100%;
+    height:auto;
+    display: none;
+}
+
+/*____________________________________________________________________________________________________
+
+BLOCS
+
+
+
+
+
+
+/*____________________________________________________________________________________________________
+
+MEDIA QUERIES
+
+*/
+
+
 @media screen and (max-width:1300px){
     #header_gran{
         display:none;
@@ -150,13 +234,27 @@ i.fa-chevron-left{
     }
     #breadcrumbs{
         widows: 100%;
-        margin:0 20px;
+        margin:0 20px 60px;
     }
-    
+}
+@media screen and (max-width:1200px){
+    .container{
+        width:100%;
+        position: relative;
+    }
+    #titol_academics p{
+        width:80%;
+    }
+}
+@media screen and (max-width:1023px){
+    #titol_academics h1{
+        font-size: 30px;
+    }
 }
 @media screen and (max-width:767px){
     #container_breadcrumbs{
         height:61px;
+        margin-bottom:41px;
     }
     #header_petit img{
         margin-left:10px;
@@ -178,4 +276,31 @@ i.fa-chevron-left{
     #breadcrumbs i{
         margin: 0 15px 0 0;
     }
+    #titol_academics h1{
+        font-size: 24px;
+        margin:0 0 21px;
+    }
+    .container{
+        padding:0 10px;
+    }
+    #titol_academics p{
+        font-size:20px;
+        width: 97%;
+        line-height: 1.6;
+    }
+    #titol_academics{
+        margin-bottom: 40px;
+    }
+}
+@media screen and (max-width:599px){
+    #banner_1_petit{
+        width:100%;
+        height:auto;
+        object-fit: cover;
+        display:block;
+    }
+    #banner_1{
+        display:none;
+    }
+    
 }

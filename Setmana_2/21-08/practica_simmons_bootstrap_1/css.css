@@ -1,0 +1,142 @@
+@font-face{
+	font-family: "Museo";
+	src: url(font/museo/museo300-Regular.otf);
+}
+@font-face{
+	font-family: "Museo_bold";
+	src: url(font/museo/museo700-Regular.otf);
+}
+@font-face{
+    font-family: "Museo_sans_500";
+    src: url(font/museo_sans/Museo_sans_500.otf)
+}
+@font-face{
+    font-family: "Museo_sans_300";
+    src: url(font/museo_sans/Museo_sans_300.otf)
+}
+body{
+    margin:0;
+    font-family: "Museo", Helvetica, sans-serif;
+    font-size: 14px;
+}
+:root{
+    --m:"Museo", Helvetica, sans-serif;
+}
+:root{
+    --mb:"Museo_bold", Helvetica, sans-serif;
+}
+:root{
+    --ms5:"Museo_sans_500", Helvetica, sans-serif;
+}
+:root{
+    --ms3:"Museo_sans_300", Helvetica, sans-serif;
+}
+.container{
+    margin:0;
+    padding:0 10px;
+    width:100%;
+    max-width:100%;
+}
+
+/*
+
+BANNER
+
+*/
+
+#banner_1_img{
+    display:none;
+    width:100%;
+}
+#banner_1_petit_img{
+    width:100%;
+}
+#banner_1{
+    width:100%;
+    margin-bottom:40px;
+}
+
+
+
+/*
+
+_________________________________________________________________
+
+BLOCS
+
+*/
+
+#blocs h2{
+    font-family: var(--mb);
+    font-size:22px;
+}
+#blocs p{
+    font-family: var(--ms3);
+    padding:0;
+    font-size:20px;
+}
+#blocs h2, #blocs p{
+    margin:0 0 20px;
+}
+#blocs{
+    margin-bottom:40px;
+}
+
+
+
+
+
+.bloc_text{
+    width:100%;
+    padding: 20px;
+    height:20px;
+    height:100px;
+    background-color: blue;
+    margin-top:30px;
+}
+.bloc_img{
+    height:100px;
+    background-color: blueviolet;
+}
+
+
+
+
+
+
+@media screen and (min-width:1200px){
+    .container{
+        margin:0 auto;
+        max-width:1200px;
+    }
+}
+@media screen and (min-width:992px){
+    #blocs h2{
+        font-size:36px;
+    }
+    #blocs{
+        margin-bottom:100px;
+    }
+}
+@media screen and (min-width:768px){
+    #banner_1{
+        margin-bottom:60px;
+    }
+    .container{
+        padding:0 20px;
+    }
+    #blocs h2{
+        font-size:26px;
+    }
+    #blocs{
+        margin-bottom:60px;
+    }
+}
+@media screen and (min-width:576px){
+    #banner_1_img{
+        display:block;
+    }
+    #banner_1_petit_img{
+        display:none;
+    }
+}

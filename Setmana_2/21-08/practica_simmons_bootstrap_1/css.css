@@ -14,6 +14,8 @@
     font-family: "Museo_sans_300";
     src: url(font/museo_sans/Museo_sans_300.otf)
 }
+@import url(//db.onlinewebfonts.com/c/8b2760b7bcaf4e2cdbb6cacec092b91b?family=MuseoSans-900);
+
 body{
     margin:0;
     font-family: "Museo", Helvetica, sans-serif;
@@ -24,6 +26,10 @@ body{
 }
 :root{
     --mb:"Museo_bold", Helvetica, sans-serif;
+}
+
+:root{
+    --ms9:"MuseoSans-900", Helvetica, sans-serif;
 }
 :root{
     --ms5:"Museo_sans_500", Helvetica, sans-serif;
@@ -177,6 +183,31 @@ BLOCS
     text-decoration: underline;
 }
 
+#container_stats{
+    padding:0;
+    text-align: center;
+}
+#container_stats h2{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #007377;
+    font-size: 18px;
+    font-family: var(--ms9);
+    overflow: hidden;
+    letter-spacing: 2.2px;
+}
+.container-fluid.stats{
+    background-color: #e6f1fc;
+    padding:40px 20px;
+}
+#container_stats hr{
+    border-top: 2px solid #C7D6E5;
+    width: 114px;
+}
+
 
 @media screen and (min-width:1200px){
     .container{
@@ -228,7 +259,7 @@ BLOCS
         justify-content: space-between;
     }
 
-    #blocs .bloc_text{
+    body #blocs .linia .bloc_text{
         width: calc(100% - 610px);
         padding:60px;
         margin: 50px 0 0 0;
@@ -260,7 +291,7 @@ BLOCS
         float:none;
     }
     
-    .linia .bloc_text{
+    #blocs .linia .bloc_text{
         max-width:750px;
         padding:60px;
         margin: -50px 0 0 -20px;
@@ -278,6 +309,17 @@ BLOCS
         margin-bottom: 60px;
     }
     
+    #container_stats h2:before,
+    #container_stats h2:after {
+        content: '';
+        border-top: 2px solid;
+        margin: 0 20px 0 20px;
+        flex: 1 0 20px;
+    }
+
+    container_stats h2:after {
+        margin: 0 0 0 20px;
+    }
 }
 @media screen and (min-width:576px){
     #banner_1_img{

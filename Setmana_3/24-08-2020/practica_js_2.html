@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica js 1</title>
+    <meta name="author" content="uptivya" charset="utf-8">
+    <style>
+        .pitjar{
+            padding:10px 15px;
+            background-color: teal;
+            color:white;
+            text-transform: uppercase;
+            border:1px solid rgb(206, 240, 240);
+            border-radius:0;
+            box-sizing:border-box;
+            transition: .5s;
+            box-shadow: 2px 2px 10px rgba(11,11,11,.3);
+        }
+        .pitjar:hover{
+            background-color: rgb(211, 243, 243);
+            color:teal;
+            border: 2px solid teal;
+            cursor:pointer;
+            box-shadow: none;
+            padding:9px 14px;
+        }
+    </style>
+    <script language="javascript">
+        function sumar(num1, num2){
+            console.log(num1 + num2);
+        }
+        function restar(num1, num2){
+            console.log(num1 - num2);
+        }
+        function multiplicar(num1, num2){
+            console.log(num1 * num2);
+        }
+        function dividir(num1, num2){
+            console.log(num1 / num2);
+        }
+    </script>
+</head>
+<body>
+    <label for="numero1">Numero 1</label>
+    <input type="text" name="numero1" id="numero1" placeholder="Posa el primer número">
+    <label for="numero2">Número 2</label>
+    <input type="text" name="numero2" id="numero2" placeholder="Posa el segon número">
+    <br>
+    <br>
+    <input class="pitjar" type="button" value="Sumar" onclick="sumar(document.getElementById('numero1').value, getElementById('numero2').value)">
+
+    <input class="pitjar" type="button" value="Restar" onclick="restar(document.getElementById('numero1').value, getElementById('numero2').value)">
+    <input class="pitjar" type="button" value="Multiplicar" onclick="multiplicar(document.getElementById('numero1').value, getElementById('numero2').value)">
+    <input class="pitjar" type="button" value="Dividir" onclick="dividir(document.getElementById('numero1').value, getElementById('numero2').value)">
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica 4 resta</title>
+    <meta charset="utf-8">
+    <meta name="author" content="uptivya">
+    <style>
+        .pitjar{
+            padding:10px 15px;
+            background-color: teal;
+            color:white;
+            text-transform: uppercase;
+            border:1px solid rgb(206, 240, 240);
+            border-radius:0;
+            box-sizing:border-box;
+            transition: .5s;
+            box-shadow: 2px 2px 10px rgba(11,11,11,.3);
+        }
+        .pitjar:hover{
+            background-color: rgb(211, 243, 243);
+            color:teal;
+            border: 2px solid teal;
+            cursor:pointer;
+            box-shadow: none;
+            padding:9px 14px;
+        }
+    </style>
+</head>
+<body>
+    <label>Escriu un número</label>
+    <input type="text" placeholder="Número" id="quadre_text">
+    <br>
+    <br>
+    <input class="pitjar" type="button" value="Meitat" id="meitat" onclick="meitat(document.getElementById('quadre_text').value)">
+    <br>
+    <br>
+    <hr>
+    <br>
+    <input type="button" value="data" onclick="data()">
+
+
+
+    <script>
+        var quantitat = 0;
+        var d = new Date();
+        var dia = d.getDate();
+        var mes = d.getMonth();
+        var any = d.getFullYear();
+        var hora = d.getHours();
+        var minuts = d.getMinutes();
+        var segons = d.getSeconds();
+
+
+        function meitat(numero){
+            quantitat = numero / 2;
+            console.log(quantitat);
+        }
+        function data(){
+            if(mes == 7)
+            console.log("Són les "+hora+":"+minuts+"."+segons+" del "+dia+" d'Agost de "+any);
+        }
+    </script>
+</body>
+</html>

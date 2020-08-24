@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica js 1</title>
+    <meta name="author" content="uptivya" charset="utf-8">
+    <style>
+        input{
+            padding:10px 15px;
+            background-color: teal;
+            color:white;
+            text-transform: uppercase;
+            border:1px solid rgb(206, 240, 240);
+            border-radius:0;
+            box-sizing:border-box;
+            transition: .5s;
+            box-shadow: 2px 2px 10px rgba(11,11,11,.3);
+        }
+        input:hover{
+            background-color: rgb(211, 243, 243);
+            color:teal;
+            border: 2px solid teal;
+            cursor:pointer;
+            box-shadow: none;
+            padding:9px 14px;
+        }
+        input:visited{
+            border-radius: none;
+        }
+    </style>
+    <script language="javascript">
+        function funciona(verificar){
+            console.log(verificar);
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="Comprova" onclick="funciona('Ei, funciona!')">
+    <input type="button" value="Torna a comprovar" onclick="funciona('Ei, també funciona!')">
+
+
+
+
+    <script language="javascript">
+        //console.log("Hola!");
+        //window.alert("Nen");
+        //document.write("<h1>Hola<h1>");
+        /*function saludar(){
+            console.log("Hola");
+        }*/
+    </script>
+</body>
+</html>

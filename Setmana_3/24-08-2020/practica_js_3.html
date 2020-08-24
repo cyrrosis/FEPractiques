@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica js 3</title>
+    <meta charset="utf-8">
+    <meta name="author" content="uptivya">
+    <style>
+        #bon_dia:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <label for="bondia">Escriu bon dia</label>
+    <input type="text" placeholder="Apa" id="bondia">
+    <input type="button" value="Envia" id="bon_dia" onclick="escriure(document.getElementById('bondia').value)">
+
+
+    <script>
+        var quantitat = 0
+        function escriure(text){
+            if(quantitat<13){
+                quantitat ++;
+                console.log(text, quantitat);
+            }
+            else{
+                console.log(text, quantitat, "Para ja collons");
+            }
+            /*var quantitat2 = 0
+            quantitat++;
+            quantitat2 = quantitat2+1;
+            console.log(text, quantitat, quantitat2);*/
+        }
+    </script>
+</body>
+</html>

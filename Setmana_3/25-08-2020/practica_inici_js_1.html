@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica js</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+        }
+        input{
+            outline: none;
+        }
+        #content_saludar{
+            width: 500px;
+            margin: 40px auto;
+            background-color: salmon;
+            padding: 100px 50px;
+            box-sizing: border-box;
+            color:white;
+        }
+        #boto_saludar{
+            color:white;
+            margin-left: 9px;
+            width: 144px;
+            padding: 10px 0px;
+            border:2px solid white;
+            background-color: salmon;
+            transition: .2s ease;
+        }
+        #boto_saludar:hover{
+            cursor:pointer;
+            box-shadow: 5px 5px 5px rgb(187, 95, 84) inset;
+        }
+        #nom_saludar{
+            padding: 10px 10px;
+            margin-left: 20px;
+        }
+        h1{
+            margin-top:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="content_saludar">
+        <h1>Posa el teu nom i et saludo</h1>
+        <label for="nom_saludar">Nom</label>
+        <input type="text" name="nom_saludar" id="nom_saludar" placeholder="Posa el teu nom">
+        <input value="Saluda'm!" type="button" name="boto_saludar" id="boto_saludar" onclick="saludar(document.getElementById('nom_saludar').value)">
+    </div>
+
+
+
+
+    <script>
+        var nom_saludar = 0
+        function saludar(nom){
+            nom_saludar = nom;
+            console.log("Bon dia "+nom+"!");
+        }
+
+    </script>
+</body>
+</html>

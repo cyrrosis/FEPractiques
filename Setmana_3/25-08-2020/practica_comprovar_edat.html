@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica Comprovar edat</title>
+    <meta name="autor" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+            background-color: salmon;
+        }
+        input{
+            outline: none;
+        }
+        #container{
+            width: 100%;
+            background-color: salmon;
+            padding: 100px 50px;
+            box-sizing: border-box;
+            color:white;
+            width:500px;
+            margin: 200px auto;
+            transition: .2s ease;
+        }
+        #container:hover{
+            box-shadow: 10px 10px 10px rgb(187, 95, 84) inset, -7px -7px 13px rgb(255, 158, 147) inset;
+        }
+        #container #boto_comprovar{
+            color:white;
+            margin-top:25px;
+            width: 100%;
+            height: 100px;
+            padding: 10px 0px;
+            /*border:2px solid white;*/
+            background-color: salmon;
+            border:none;
+            box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);
+            transition: 3s ease;
+        }
+        #container #boto_comprovar:hover{
+            cursor:pointer;
+            box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;
+            
+        }
+        #edat_value{
+            padding: 10px 10px;
+            margin-left: 20px;
+            width:55%;
+            border-radius: 0;
+            border:1px solid rgb(100, 100, 100);
+            background-color: white;
+        }
+        #edat_value::placeholder{
+            color: lightgray;
+        }
+        h1{
+            margin-top:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Comprova l'edat</h1>
+        <label for="edat_value">Escriu la teva edat</label>
+        <input type="number" name="edat_value" id="edat_value" placeholder="Edat">
+        <input type="button" value="Comprova" id="boto_comprovar" name="boto_comprovar" onclick="comprovar_edat()">
+    </div>
+
+
+    <script>
+        var edat = 0;
+        function comprovar_edat(){
+            edat = document.getElementById("edat_value").value;
+            if(edat < 18){
+                window.alert("Encara ets menor així que torna-te'n a jugar a tazos.");
+            }else{
+                window.alert("Pots passar. Però compte! Que t'hi trobaràs coses dolentotes.");
+            }
+        }
+    </script>
+</body>
+</html>

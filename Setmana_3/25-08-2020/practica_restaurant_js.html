@@ -15,6 +15,11 @@
         input, select{
             outline: none;
         }
+        select{
+            display:inline-block;
+            margin-top:2px;
+            text-align: center;
+        }
         #boto_enviar{
             color:white;
             margin-top:25px;
@@ -36,68 +41,112 @@
             /*box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;*/
             
         }
-        .menus{
-            padding: 10px 10px;
-            margin:0 10px 10px 0;
+
+        .menus, .quadre_resultats{
             border-radius: 0;
             border:3px solid white;
             background-color: salmon;
             color:white;
-            width:270px;
-            height:270px;
+            height:237.5px;
+            padding:30px;
+            margin-bottom: 47.5px;;
         }
-        .menus option{
-            overflow: auto;
+        .desplegable{
+            width:20px;
+            height:20px;
         }
-        #container_menus{
+        /*#container_menus, #container_resultats{
             background-color: seagreen;
-            padding:0;
-        }
+        }*/
         .menus::placeholder{
             color: lightgray;
         }
         h1{
-            margin-top:0;
+            margin:60px 0 0 -15px;
+            font-weight: 900;
+            color: white;
+        }
+        h2{
+            font-weight: 700;
+        }
+        p{
+            font-weight: 700;
+            font-size:18px;
+            line-height: 1.5;
+        }
+        .col-5.quadre_resultats{
+            border:none;
+        }
+        label{
+            display: inline-block;
+        }
+        hr{
+            border: 2px solid white;
+            margin:30px 0 50px -15px;
         }
     </style>
 </header>
 <body>
     <div class="container">
-        <h1>Can Roca</h1>
+        <h1>CAN ROCA</h1>
+        <hr>
         <div class="row">
             <div class="col-6" id="container_menus">
-                <div class="col-6 menus">
-                    <h2>PRIMER PLAT</h2>
-                    <select id="primer_plat" onchange="triarPrimer()">
-                        <option disabled selected>Tria el teu primer plat</option>
-                        <option value="patates">Patates Hasselback amb pesto de bròcoli</option>
-                        <option value="hummus">Hummus amb verdures crues</option>
-                        <option value="cigrons">Amanida de cigrons</option>
-                    </select>
+                <div class="row">
+                    <div class="menus col-5">
+                        <h2>PRIMER PLAT</h2>
+                        
+                        <p id="text_primer_plat">
+                            <select class="desplegable" id="primer_plat" onchange="triarPrimer()">
+                                <option disabled selected></option>
+                                <option value="patates">Patates Hasselback amb pesto de bròcoli</option>
+                                <option value="hummus">Hummus amb verdures crues</option>
+                                <option value="cigrons">Amanida de cigrons</option>
+                            </select> 
+                            ESCULL EL TEU PRIMER PLAT
+                        </p>
+                    </div>
+                    <div class="menus  col-5 offset-1">
+                        <h2>SEGON PLAT</h2>
+                        <p id=text_segon_plat>
+                            <select class="desplegable" id="segon_plat" onchange="triarSegon()">
+                                <option disabled selected></option>
+                                <option value="lassanya">Lassanya de verdures</option>
+                                <option value="galtes">Galtes de porc</option>
+                                <option value="arros">Arròs a la cassola</option>
+                            </select>
+                            ESCULL EL TEU SEGON PLAT
+                        </p>
+                    </div>
+                    <div class=" menus col-5">
+                        <h2>POSTRES</h2>
+                        <p id="text_postres">
+                            <select class=" desplegable" id="postres" onchange="triarPostres()">
+                                <option disabled selected></option>
+                                <option value="coulant">Coulant de xocolata negra</option>
+                                <option value="xuixo">Xuixo de crema</option>
+                                <option value="maduixes">Maduixes amb nata</option>
+                            </select>
+                            ESCULL LES TEVES POSTRES
+                        </p>
+                    </div>
                 </div>
-                
-                <select class="menus col-6" id="segon_plat" onchange="triarSegon()">
-                    <option disabled selected>Tria el teu segon plat</option>
-                    <option value="lassanya">Lassanya de verdures</option>
-                    <option value="galtes">Galtes de porc</option>
-                    <option value="arros">Arròs a la cassola</option>
-                </select>
-                <select class="menus col-6" id="postres" onchange="triarPostres()">
-                    <option disabled selected>Tria les teves postres</option>
-                    <option value="coulant">Coulant de xocolata negra</option>
-                    <option value="xuixo">Xuixo de crema</option>
-                    <option value="maduixes">Maduixes amb nata</option>
-                </select>
+                    
+                    
                 
                 
             </div>
-            <div class="col-6" id=#resultats>
-                <div id="resultat_primer_plat">
+            <div class="col-6" id="container_resultats">
+                <div class="row">
+                    <div class="col-5 quadre_resultats" id="resultat_primer_plat">
+                    </div>
+                    <div class="col-5 offset-1 quadre_resultats" id="resultat_segon_plat">
+                    </div>
+                    <div class="col-5 quadre_resultats" id="resultat_postres">
+                    </div>
+
                 </div>
-                <div id="resultat_segon_plat">
-                </div>
-                <div id="resultat_postres">
-                </div>
+                    
             </div>
         </div>
         <div class="row">
@@ -117,46 +166,64 @@
         var segonPlat = 0;
         var postres = 0;
         
-        resultat_primerPlat = 0;
-        resultat_segonPlat = 0;
-        resultat_postres = 0;
+        var resultat_primerPlat = 0;
+        var resultat_segonPlat = 0;
+        var resultat_postres = 0;
 
+        var text_primer_plat = 0;
+        var text_segon_plat = 0;
+        var text_postres = 0;
 
 
         function triarPrimer(){
             primerPlat = document.getElementById("primer_plat").value;
             resultat_primerPlat = document.getElementById("resultat_primer_plat");
+            text_primer_plat = document.getElementById("text_primer_plat");
             if(primerPlat == "patates"){
-                resultat_primerPlat.innerHTML="<img src='img/patates.jpg'>";
+                resultat_primerPlat.innerHTML="<img src='img/patates.jpg' style='max-width:100%'>";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> PATATES HASSELBACK AMB PESTO DE BRÒCOLI";
             }else if(primerPlat == "hummus"){
-                resultat_primerPlat.innerHTML="<img src='img/hummus.jpg'>";
+                resultat_primerPlat.innerHTML="<img src='img/hummus.jpg' style='max-width:100%'>";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> HUMMUS AMB VERDURES CRUES";
             }else{
-                resultat_primerPlat.innerHTML="<img src='img/cigrons.jpg'>";
+                resultat_primerPlat.innerHTML="<img src='img/cigrons.jpg' style='max-width:100%'>";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> AMANIDA DE CIGRONS";
             }
         }
         function triarSegon(){
             segonPlat = document.getElementById("segon_plat").value;
             resultat_segonPlat = document.getElementById("resultat_segon_plat");
+            text_segon_plat = document.getElementById("text_segon_plat");
             if(segonPlat == "lassanya"){
-                resultat_segonPlat.innerHTML="<img src='img/lassanya.jpg'>";
+                resultat_segonPlat.innerHTML="<img src='img/lassanya.jpg' style='max-width:100%'>";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> LASSANYA DE VERDURES";
             }else if(segonPlat == "galtes"){
-                resultat_segonPlat.innerHTML="<img src='img/galtes.jpg'>";
+                resultat_segonPlat.innerHTML="<img src='img/galtes.jpg' style='max-width:100%'>";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> GALTES DE PORC";
             }else{
-                resultat_segonPlat.innerHTML="<img src='img/arros.jpg'>";
+                resultat_segonPlat.innerHTML="<img src='img/arros.jpg' style='max-width:100%'>";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> ARRÒS A LA CASSOLA";
             }
         }
         function triarPostres(){
             postres = document.getElementById("postres").value;
             resultat_postres = document.getElementById("resultat_postres");
+            text_postres = document.getElementById("text_postres")
             if(postres == "coulant"){
-                resultat_postres.innerHTML="<img src='img/coulant.jpg'>";
+                resultat_postres.innerHTML="<img src='img/coulant.jpg' style='max-width:100%'>";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> COULANT DE XOCOLATA NEGRA";
+            
             }else if(postres == "xuixo"){
-                resultat_postres.innerHTML="<img src='img/xuixo.jpg'>";
+                resultat_postres.innerHTML="<img src='img/xuixo.jpg' style='max-width:100%'>";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> XUIXO DE CREMA";
             }else{
-                resultat_postres.innerHTML="<img src='img/maduixes.jpg'>";
+                resultat_postres.innerHTML="<img src='img/maduixes.jpg' style='max-width:100%'>";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> MADUIXES AMB NATA";
             }
         }
-        
+        function ferComanda(){
+            window.alert("Espera'ns amb gana!");
+        }
         
     </script>
 </body>

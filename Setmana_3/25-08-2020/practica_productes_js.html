@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica productes js</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+            background-color: salmon;
+        }
+        input, select{
+            outline: none;
+        }
+        #container{
+            display: flex;
+            margin: 200px auto;
+            width:fit-content;
+        }
+        #container_productes{
+            background-color: salmon;
+            padding: 100px 50px 50px;
+            box-sizing: border-box;
+            color:white;
+            width:500px;
+            transition: .2s ease;
+            box-shadow: 10px 10px 10px rgb(187, 95, 84) inset, -7px -7px 13px rgb(255, 158, 147) inset;
+        }
+        #resultat{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            height:400px;
+            width: 300px;
+            margin-left: 30px;
+            background-color: white;
+            padding:40px;
+            letter-spacing: 1.2px;
+            font-family: 'Alata', 'Helvetica', sans-serif;
+            
+        }
+        #boto_enviar{
+            color:white;
+            margin-top:25px;
+            width: 100%;
+            height: 100px;
+            padding: 10px 0px;
+            border:none ;
+            border-bottom:10px solid white;
+            border-right:10px solid white;
+
+            background-color: salmon;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);*/
+            transition: 3s ease;
+            font-size: 40px;
+            font-weight: 900;
+        }
+        #boto_enviar:hover, select:hover{
+            cursor:pointer;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;*/
+            
+        }
+        #opcions_productes{
+            padding: 10px 10px;
+            margin-left: 20px;
+            width:55%;
+            border-radius: 0;
+            border:1px solid rgb(100, 100, 100);
+            background-color: white;
+            
+        }
+        #opcions_productes::placeholder{
+            color: lightgray;
+        }
+        h1{
+            margin-top:0;
+        }
+        hr{
+            border:1px solid white;
+            margin:20px 0 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="container_productes">
+            <h1>Rocòdrom</h1>
+            <hr>
+            <label>Tria el teu producte</label>
+            <select id="opcions_productes" onchange="displayProducte();">
+                <option disabled selected>Escull el teu producte</option>
+                <option value="prod_1">Burst</option>
+                <option value="prod_2">Butter</option>
+                <option value="prod_3">Butterfly</option>
+            </select>
+            <input type="button" id="boto_enviar" value="Envia la comanda" onclick="ferComanda();">
+        </div>
+        <div id="resultat">
+    
+    
+        </div>
+    </div>
+
+
+    <script>
+        var prod = 0;
+        var resultat = 0;
+        function displayProducte(){
+            prod = document.getElementById("opcions_productes").value;
+            resultat = document.getElementById("resultat");
+            if (prod == "prod_1"){
+                resultat.innerHTML="<img style='max-height:80%;max-width:80%;' src='img/burst.jpg'>";
+            }else if(prod == "prod_2"){
+                resultat.innerHTML="<img style='max-height:80%;max-width:80%;' src='img/butter.jpg'>";
+            }else{
+                resultat.innerHTML="<img style='max-height:80%;max-width:80%;' src='img/butterfly.jpg'>";
+            }
+        }
+        function ferComanda(){
+            window.alert("Comanda feta! Espera uns dies i t'arribarà a casa.")
+        }
+    </script>
+</body>
+</html>

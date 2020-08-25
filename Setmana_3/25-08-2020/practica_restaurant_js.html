@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<header>   
+    <title>Practica restaurant js</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+        }
+        body {
+            background-color: salmon;
+        }
+        input, select{
+            outline: none;
+        }
+        #boto_enviar{
+            color:white;
+            margin-top:25px;
+            width: 100%;
+            height: 100px;
+            padding: 10px 0px;
+            border:none ;
+            border-bottom:10px solid white;
+            border-right:10px solid white;
+
+            background-color: salmon;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);*/
+            transition: 3s ease;
+            font-size: 20px;
+            font-weight: 900;
+        }
+        #boto_enviar:hover, select:hover{
+            cursor:pointer;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;*/
+            
+        }
+        .menus{
+            padding: 10px 10px;
+            margin:0 10px 10px 0;
+            border-radius: 0;
+            border:3px solid white;
+            background-color: salmon;
+            color:white;
+            width:270px;
+            height:270px;
+        }
+        .menus option{
+            overflow: auto;
+        }
+        #container_menus{
+            background-color: seagreen;
+            padding:0;
+        }
+        .menus::placeholder{
+            color: lightgray;
+        }
+        h1{
+            margin-top:0;
+        }
+    </style>
+</header>
+<body>
+    <div class="container">
+        <h1>Can Roca</h1>
+        <div class="row">
+            <div class="col-6" id="container_menus">
+                <div class="col-6 menus">
+                    <h2>PRIMER PLAT</h2>
+                    <select id="primer_plat" onchange="triarPrimer()">
+                        <option disabled selected>Tria el teu primer plat</option>
+                        <option value="patates">Patates Hasselback amb pesto de bròcoli</option>
+                        <option value="hummus">Hummus amb verdures crues</option>
+                        <option value="cigrons">Amanida de cigrons</option>
+                    </select>
+                </div>
+                
+                <select class="menus col-6" id="segon_plat" onchange="triarSegon()">
+                    <option disabled selected>Tria el teu segon plat</option>
+                    <option value="lassanya">Lassanya de verdures</option>
+                    <option value="galtes">Galtes de porc</option>
+                    <option value="arros">Arròs a la cassola</option>
+                </select>
+                <select class="menus col-6" id="postres" onchange="triarPostres()">
+                    <option disabled selected>Tria les teves postres</option>
+                    <option value="coulant">Coulant de xocolata negra</option>
+                    <option value="xuixo">Xuixo de crema</option>
+                    <option value="maduixes">Maduixes amb nata</option>
+                </select>
+                
+                
+            </div>
+            <div class="col-6" id=#resultats>
+                <div id="resultat_primer_plat">
+                </div>
+                <div id="resultat_segon_plat">
+                </div>
+                <div id="resultat_postres">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <input class="col-3" type="button" id="boto_enviar" value="Envia la comanda" onclick="ferComanda()">
+        </div>
+    </div>
+            
+            
+    
+    
+
+
+
+
+    <script>
+        var primerPlat = 0;
+        var segonPlat = 0;
+        var postres = 0;
+        
+        resultat_primerPlat = 0;
+        resultat_segonPlat = 0;
+        resultat_postres = 0;
+
+
+
+        function triarPrimer(){
+            primerPlat = document.getElementById("primer_plat").value;
+            resultat_primerPlat = document.getElementById("resultat_primer_plat");
+            if(primerPlat == "patates"){
+                resultat_primerPlat.innerHTML="<img src='img/patates.jpg'>";
+            }else if(primerPlat == "hummus"){
+                resultat_primerPlat.innerHTML="<img src='img/hummus.jpg'>";
+            }else{
+                resultat_primerPlat.innerHTML="<img src='img/cigrons.jpg'>";
+            }
+        }
+        function triarSegon(){
+            segonPlat = document.getElementById("segon_plat").value;
+            resultat_segonPlat = document.getElementById("resultat_segon_plat");
+            if(segonPlat == "lassanya"){
+                resultat_segonPlat.innerHTML="<img src='img/lassanya.jpg'>";
+            }else if(segonPlat == "galtes"){
+                resultat_segonPlat.innerHTML="<img src='img/galtes.jpg'>";
+            }else{
+                resultat_segonPlat.innerHTML="<img src='img/arros.jpg'>";
+            }
+        }
+        function triarPostres(){
+            postres = document.getElementById("postres").value;
+            resultat_postres = document.getElementById("resultat_postres");
+            if(postres == "coulant"){
+                resultat_postres.innerHTML="<img src='img/coulant.jpg'>";
+            }else if(postres == "xuixo"){
+                resultat_postres.innerHTML="<img src='img/xuixo.jpg'>";
+            }else{
+                resultat_postres.innerHTML="<img src='img/maduixes.jpg'>";
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>

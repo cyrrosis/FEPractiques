@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<header>   
+    <title>Practica gelats js</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+        }
+        body {
+            background-color: salmon;
+        }
+        input, select{
+            outline: none;
+        }
+        select{
+            display:inline-block;
+            margin-top:2px;
+            text-align: center;
+        }
+        #boto_enviar{
+            color:white;
+            margin:25px 20px 0 0;
+            padding: 10px 10px;
+            border:none ;
+            border:10px solid white;
+
+            background-color: salmon;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);*/
+            transition: 3s ease;
+            font-size: 20px;
+            font-weight: 900;
+            text-align: left;
+        }
+        #boto_enviar:hover, select:hover{
+            cursor:pointer;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;*/
+            
+        }
+
+        .opcions, .quadre_resultats{
+            border-radius: 0;
+            border:3px solid white;
+            background-color: salmon;
+            color:white;
+            height:237.5px;
+            padding:25px;
+            margin-bottom: 47.5px;;
+        }
+        .desplegable{
+            width:20px;
+            height:20px;
+        }
+        /*#container_menus, #container_resultats{
+            background-color: seagreen;
+        }*/
+        .opcions::placeholder{
+            color: lightgray;
+        }
+        h1{
+            margin:60px 0 0 -15px;
+            font-weight: 900;
+            color: white;
+        }
+        h2{
+            font-weight: 700;
+        }
+        p{
+            font-weight: 700;
+            font-size:18px;
+            line-height: 1.5;
+        }
+        .col-5.quadre_resultats{
+            border:none;
+            padding: 0;
+        }
+        label{
+            display: inline-block;
+        }
+        hr{
+            border: 1px solid white;
+            margin:30px 0 50px -15px;
+        }
+    
+    </style>
+</header>
+<body>
+    <div class="container">
+        <h1>ROCAMBOLESC</h1>
+        <hr>
+        <div class="row">
+            <div class="col-6" id="container_opcions">
+                <div class="row">
+                    <div class="opcions col-5">
+                        <h2>GUST</h2>
+                        
+                        <p id="text_gust">
+                            <select class="desplegable" id="gust" onChange="triarGust()">
+                                <option disabled selected></option>
+                                <option value="xocolata">de Xocolata</option>
+                                <option value="maduixa">de Maduixa</option>
+                                <option value="stracciatella">de Stracciatella</option>
+                            </select> 
+                            ESCULL EL GUST
+                        </p>
+                    </div>
+                    <div class="opcions col-5 offset-1">
+                        <h2>TIPUS</h2>
+                        <p id=text_tipus>
+                            <select class="desplegable" id="tipus" onChange="triarTipus()">
+                                <option disabled selected></option>
+                                <option value="sol">Sense res</option>
+                                <option value="terrina">Terrina</option>
+                                <option value="cucurutxo">Cucurutxo</option>
+                            </select>
+                            ESCULL EL TIPUS
+                        </p>
+                    </div>
+                    <div class="opcions col-5">
+                        <h2>MIDA</h2>
+                        <p id="text_mida">
+                            <select class=" desplegable" id="mida" onChange="triarMida()">
+                                <option disabled selected></option>
+                                <option value="1">1 Bola</option>
+                                <option value="2">2 Boles</option>
+                                <option value="3">3 Boles</option>
+                            </select>
+                            ESCULL LA MIDA
+                        </p>
+                    </div>
+                    <div class="opcions col-5 offset-1">
+                        <h2>TOPPINGS</h2>
+                        <p id="text_toppings">
+                            <select class=" desplegable" id="toppings" onChange="triarToppings()">
+                                <option disabled selected></option>
+                                <option value="kiwi">Kiwi</option>
+                                <option value="crocant">Crocant</option>
+                                <option value="mikado">Mikado</option>
+                            </select>
+                            ESCULL ELS TOPPINGS
+                        </p>
+                    </div>
+                    
+                </div>
+                    
+                    
+                
+                
+            </div>
+            <div class="col-6" id="container_resultats">
+                <div class="row">
+                    <div class="col-5 quadre_resultats" id="resultat_gust">
+                    </div>
+                    <div class="col-5 offset-1 quadre_resultats" id="resultat_tipus">
+                    </div>
+                    <div class="col-5 quadre_resultats" id="resultat_mida">
+                    </div>
+                    <div class="col-5 offset-1 quadre_resultats" id="resultat_toppings">
+                    </div>
+
+                </div>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <input class="col-12" type="button" id="boto_enviar" value="Envia la comanda_________" onclick="ferComanda()">
+            
+        </div>
+    </div>
+            
+            
+    
+    
+
+
+
+
+    <script>
+        var gust = 0;
+        var tipus = 0;
+        var mida = 0;
+        var toppings = 0;
+        
+        var resultat_gust = 0;
+        var resultat_tipus = 0;
+        var resultat_mida = 0;
+        var resultat_toppings = 0;
+
+        var text_gust = 0;
+        var text_tipus = 0;
+        var text_mida = 0;
+        var text_toppings = 0;
+
+
+        function triarGust(){
+            gust = document.getElementById("gust").value;
+            resultat_gust = document.getElementById("resultat_gust");
+            text_gust = document.getElementById("text_gust");
+            if(gust == "xocolata"){
+                resultat_gust.innerHTML="<img src='img/xocolata.jpg' style='max-width:100%'>";
+                text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='stracciatella'>Stracciatella</option></select> XOCOLATA";
+            }else if(gust == "maduixa"){
+                resultat_gust.innerHTML="<img src='img/maduixa.jpg' style='max-width:100%'>";
+                text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='stracciatella'>Stracciatella</option></select> MADUIXA";
+            }else{
+                resultat_gust.innerHTML="<img src='img/stracciatella.jpg' style='max-width:100%'>";
+                text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='stracciatella'>Stracciatella</option></select> STRACCIATELLA";
+            }
+        }
+        function triarTipus(){
+            segonPlat = document.getElementById("tipus").value;
+            resultat_segonPlat = document.getElementById("resultat_tipus");
+            text_tipus = document.getElementById("text_tipus");
+            if(segonPlat == "lassanya"){
+                resultat_segonPlat.innerHTML="<img src='img/lassanya.jpg' style='max-width:100%'>";
+                text_tipus.innerHTML="<select class='desplegable' id='tipus' onChange='triarSegon()''><option disabled selected></option><option selected value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> LASSANYA DE VERDURES";
+            }else if(segonPlat == "galtes"){
+                resultat_segonPlat.innerHTML="<img src='img/galtes.jpg' style='max-width:100%'>";
+                text_tipus.innerHTML="<select class='desplegable' id='tipus' onChange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option selected value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> GALTES DE PORC";
+            }else{
+                resultat_segonPlat.innerHTML="<img src='img/arros.jpg' style='max-width:100%'>";
+                text_tipus.innerHTML="<select class='desplegable' id='tipus' onChange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option selected value='arros'>Arròs a la cassola</option></select> ARRÒS A LA CASSOLA";
+            }
+        }
+        function triarMida(){
+            mida = document.getElementById("mida").value;
+            resultat_mida = document.getElementById("resultat_mida");
+            text_mida = document.getElementById("text_mida")
+            if(mida == "coulant"){
+                resultat_mida.innerHTML="<img src='img/coulant.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option selected value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> COULANT DE XOCOLATA NEGRA";
+            
+            }else if(mida == "xuixo"){
+                resultat_mida.innerHTML="<img src='img/xuixo.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option selected value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> XUIXO DE CREMA";
+            }else{
+                resultat_mida.innerHTML="<img src='img/maduixes.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option selected value='maduixes'>Maduixes amb nata</option></select> MADUIXES AMB NATA";
+            }
+        }
+        function triarToppings(){
+            mida = document.getElementById("mida").value;
+            resultat_mida = document.getElementById("resultat_mida");
+            text_mida = document.getElementById("text_mida")
+            if(mida == "coulant"){
+                resultat_mida.innerHTML="<img src='img/coulant.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option selected value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> COULANT DE XOCOLATA NEGRA";
+            
+            }else if(mida == "xuixo"){
+                resultat_mida.innerHTML="<img src='img/xuixo.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option selected value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> XUIXO DE CREMA";
+            }else{
+                resultat_mida.innerHTML="<img src='img/maduixes.jpg' style='max-width:100%'>";
+                text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option selected value='maduixes'>Maduixes amb nata</option></select> MADUIXES AMB NATA";
+            }
+        }
+        
+        function ferComanda(){
+            window.alert("Fet i enviat! Espera'ns amb gana!");
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="button" value="És Agost?" onClick="comprovar()">
+
+
+
+    <script>
+        var data = 0
+        var mes = 0
+
+        function comprovar(){
+            data = new Date();
+            mes = data.getMonth();
+            if(mes == 6){
+                window.alert("No, però falta poc per vacances.");
+            }else if(mes == 7){
+                window.alert("Sí nena! Estàs en plenes vacances!");
+            }else if(mes == 8){
+                window.alert("Buf ja no. Que se t'han acabat les vacances, tu.");
+            }else{
+                window.alert("Esperi a Agost.");
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -22,19 +22,17 @@
         }
         #boto_enviar{
             color:white;
-            margin-top:25px;
-            width: 100%;
-            height: 100px;
-            padding: 10px 0px;
+            margin:25px 20px 0 0;
+            padding: 10px 10px;
             border:none ;
-            border-bottom:10px solid white;
-            border-right:10px solid white;
+            border:10px solid white;
 
             background-color: salmon;
             /*box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);*/
             transition: 3s ease;
             font-size: 20px;
             font-weight: 900;
+            text-align: left;
         }
         #boto_enviar:hover, select:hover{
             cursor:pointer;
@@ -48,7 +46,7 @@
             background-color: salmon;
             color:white;
             height:237.5px;
-            padding:30px;
+            padding:25px;
             margin-bottom: 47.5px;;
         }
         .desplegable{
@@ -76,14 +74,16 @@
         }
         .col-5.quadre_resultats{
             border:none;
+            padding: 0;
         }
         label{
             display: inline-block;
         }
         hr{
-            border: 2px solid white;
+            border: 1px solid white;
             margin:30px 0 50px -15px;
         }
+    
     </style>
 </header>
 <body>
@@ -150,7 +150,8 @@
             </div>
         </div>
         <div class="row">
-            <input class="col-3" type="button" id="boto_enviar" value="Envia la comanda" onclick="ferComanda()">
+            <input class="col-12" type="button" id="boto_enviar" value="Envia la comanda_________" onclick="ferComanda()">
+            
         </div>
     </div>
             
@@ -181,13 +182,13 @@
             text_primer_plat = document.getElementById("text_primer_plat");
             if(primerPlat == "patates"){
                 resultat_primerPlat.innerHTML="<img src='img/patates.jpg' style='max-width:100%'>";
-                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> PATATES HASSELBACK AMB PESTO DE BRÒCOLI";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option selected value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> PATATES HASSELBACK AMB PESTO DE BRÒCOLI";
             }else if(primerPlat == "hummus"){
                 resultat_primerPlat.innerHTML="<img src='img/hummus.jpg' style='max-width:100%'>";
-                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> HUMMUS AMB VERDURES CRUES";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option selected value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> HUMMUS AMB VERDURES CRUES";
             }else{
                 resultat_primerPlat.innerHTML="<img src='img/cigrons.jpg' style='max-width:100%'>";
-                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option value='cigrons'>Amanida de cigrons</option></select> AMANIDA DE CIGRONS";
+                text_primer_plat.innerHTML="<select class='desplegable' id='primer_plat' onchange='triarPrimer()'><option disabled selected></option><option value='patates'>Patates Hasselback amb pesto de bròcoli</option><option value='hummus'>Hummus amb verdures crues</option><option selected value='cigrons'>Amanida de cigrons</option></select> AMANIDA DE CIGRONS";
             }
         }
         function triarSegon(){
@@ -196,13 +197,13 @@
             text_segon_plat = document.getElementById("text_segon_plat");
             if(segonPlat == "lassanya"){
                 resultat_segonPlat.innerHTML="<img src='img/lassanya.jpg' style='max-width:100%'>";
-                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> LASSANYA DE VERDURES";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option selected value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> LASSANYA DE VERDURES";
             }else if(segonPlat == "galtes"){
                 resultat_segonPlat.innerHTML="<img src='img/galtes.jpg' style='max-width:100%'>";
-                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> GALTES DE PORC";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option selected value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> GALTES DE PORC";
             }else{
                 resultat_segonPlat.innerHTML="<img src='img/arros.jpg' style='max-width:100%'>";
-                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option value='arros'>Arròs a la cassola</option></select> ARRÒS A LA CASSOLA";
+                text_segon_plat.innerHTML="<select class='desplegable' id='segon_plat' onchange='triarSegon()''><option disabled selected></option><option value='lassanya'>Lassanya de verdures</option><option value='galtes'>Galtes de porc</option><option selected value='arros'>Arròs a la cassola</option></select> ARRÒS A LA CASSOLA";
             }
         }
         function triarPostres(){
@@ -211,18 +212,18 @@
             text_postres = document.getElementById("text_postres")
             if(postres == "coulant"){
                 resultat_postres.innerHTML="<img src='img/coulant.jpg' style='max-width:100%'>";
-                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> COULANT DE XOCOLATA NEGRA";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option selected value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> COULANT DE XOCOLATA NEGRA";
             
             }else if(postres == "xuixo"){
                 resultat_postres.innerHTML="<img src='img/xuixo.jpg' style='max-width:100%'>";
-                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> XUIXO DE CREMA";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option selected value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> XUIXO DE CREMA";
             }else{
                 resultat_postres.innerHTML="<img src='img/maduixes.jpg' style='max-width:100%'>";
-                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option value='maduixes'>Maduixes amb nata</option></select> MADUIXES AMB NATA";
+                text_postres.innerHTML="<select class='desplegable' id='postres' onchange='triarPostres()''><option disabled selected></option><option value='coulant'>Coulant de xocolata negra</option><option value='xuixo'>Xuixo de crema</option><option selected value='maduixes'>Maduixes amb nata</option></select> MADUIXES AMB NATA";
             }
         }
         function ferComanda(){
-            window.alert("Espera'ns amb gana!");
+            window.alert("Fet i enviat! Espera'ns amb gana!");
         }
         
     </script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <title>Practica switch</title>
+    <meta name="autor" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+
+
+    </style>
+</head>
+<body>
+    <input type="button" value="Comprovar" id="comprovar_dia" onClick="comprovarDia()">
+
+
+    <script>
+        var d = new Date();
+        var dia = d.getDay();
+        function comprovarDia(){
+            switch(dia){
+                case 0:
+                window.alert("Diumenge!");
+                break;
+                case 1:
+                window.alert("Dilluns!");
+                break;
+                case 2:
+                window.alert("Dimarts!");
+                break;
+                case 3:
+                window.alert("Dimecres!");
+                break;
+                case 4:
+                window.alert("Dijous!");
+                break;
+                case 5:
+                window.alert("Divendres!");
+                break;
+                case 6:
+                window.alert("Dissabte!");
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

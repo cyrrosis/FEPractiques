@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<header>   
+    <title>Practica gelats js</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        *{
+            font-family: 'Alata', 'Helvetica', sans-serif;
+        }
+        body {
+            background-color: salmon;
+        }
+        input, select{
+            outline: none;
+        }
+        select{
+            display:inline-block;
+            margin-top:2px;
+            text-align: center;
+        }
+        #boto_enviar{
+            color:white;
+            margin:25px 20px 0 0;
+            padding: 10px 10px;
+            border:none ;
+            border:10px solid white;
+
+            background-color: salmon;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84), -3px -3px 7px rgb(255, 170, 161);*/
+            transition: 3s ease;
+            font-size: 20px;
+            font-weight: 900;
+            text-align: left;
+        }
+        #boto_enviar:hover, select:hover{
+            cursor:pointer;
+            /*box-shadow: 5px 5px 5px rgb(187, 95, 84) inset, -3px -3px 7px rgb(255, 170, 161) inset;*/
+            
+        }
+
+        .opcions, .quadre_resultats{
+            border-radius: 0;
+            border:3px solid white;
+            background-color: salmon;
+            color:white;
+            height:237.5px;
+            padding:25px;
+            margin-bottom: 47.5px;;
+        }
+        .quadre_resultats{
+            box-sizing: border-box;
+        }
+        .desplegable{
+            width:20px;
+            height:20px;
+        }
+        /*#container_menus, #container_resultats{
+            background-color: seagreen;
+        }*/
+        .opcions::placeholder{
+            color: lightgray;
+        }
+        h1{
+            margin:60px 0 0 -15px;
+            font-weight: 900;
+            color: white;
+        }
+        h2{
+            font-weight: 700;
+        }
+        p{
+            font-weight: 700;
+            font-size:18px;
+            line-height: 1.5;
+        }
+        .col-5.quadre_resultats{
+            border:none;
+            padding: 0;
+        }
+        .col-5.quadre_resultats img{
+            width:100%;
+            height:100%;
+        }
+        .col-5.quadre_resultats p{
+            font-size: 240px;
+            font-weight: 900;
+            line-height: 1;
+            padding: 0 65px;
+        }
+        label{
+            display: inline-block;
+        }
+        hr{
+            border: 1px solid white;
+            margin:30px 0 50px -15px;
+        }
+    
+    </style>
+</header>
+<body>
+    <div class="container">
+        <h1>ROCAMBOLESC</h1>
+        <hr>
+        <div class="row">
+            <div class="col-6" id="container_opcions">
+                <div class="row">
+                    <div class="opcions col-5">
+                        <h2>GUST</h2>
+                        
+                        <p id="text_gust">
+                            <select class="desplegable" id="gust" onChange="triarGust()">
+                                <option disabled selected></option>
+                                <option value="xocolata">Xocolata</option>
+                                <option value="maduixa">Maduixa</option>
+                                <option value="vainilla">Vainilla</option>
+                            </select> 
+                            ESCULL EL GUST
+                        </p>
+                    </div>
+                    <div class="opcions col-5 offset-1">
+                        <h2>TIPUS</h2>
+                        <p id=text_tipus>
+                            <select class="desplegable" id="tipus" onChange="triarTipus()">
+                                <option disabled selected></option>
+                                <option value="terrina">Terrina</option>
+                                <option value="cucurutxo">Cucurutxo</option>
+                            </select>
+                            ESCULL EL TIPUS
+                        </p>
+                    </div>
+                    <div class="opcions col-5">
+                        <h2>MIDA</h2>
+                        <p id="text_mida">
+                            <select class="desplegable" id="mida" onChange="triarMida()">
+                                <option disabled selected></option>
+                                <option value="1">1 Bola</option>
+                                <option value="2">2 Boles</option>
+                                <option value="3">3 Boles</option>
+                            </select>
+                            ESCULL LA MIDA
+                        </p>
+                    </div>
+                    <div class="opcions col-5 offset-1">
+                        <h2>TOPPINGS</h2>
+                        <p id="text_toppings">
+                            <select class="desplegable" id="toppings" onChange="triarToppings()">
+                                <option disabled selected></option>
+                                <option value="kiwi">Kiwi</option>
+                                <option value="crocant">Crocant</option>
+                                <option value="mikado">Mikado</option>
+                            </select>
+                            ESCULL ELS TOPPINGS
+                        </p>
+                    </div>
+                    
+                </div>
+                    
+                    
+                
+                
+            </div>
+            <div class="col-6" id="container_resultats">
+                <div class="row">
+                    <div class="col-5 quadre_resultats" id="resultat_gust">
+                    </div>
+                    <div class="col-5 offset-1 quadre_resultats" id="resultat_tipus">
+                    </div>
+                    <div class="col-5 quadre_resultats" id="resultat_mida">
+                    </div>
+                    <div class="col-5 offset-1 quadre_resultats" id="resultat_toppings">
+                    </div>
+
+                </div>
+                    
+            </div>
+        </div>
+        <div class="row">
+            <input class="col-12" type="button" id="boto_enviar" value="Envia la comanda_________" onclick="ferComanda()">
+            
+        </div>
+    </div>
+            
+            
+    
+    
+
+
+
+
+    <script>
+        var gust = 0;
+        var tipus = 0;
+        var mida = 0;
+        var toppings = 0;
+        
+        var resultat_gust = 0;
+        var resultat_tipus = 0;
+        var resultat_mida = 0;
+        var resultat_toppings = 0;
+
+        var text_gust = 0;
+        var text_tipus = 0;
+        var text_mida = 0;
+        var text_toppings = 0;
+
+
+        function triarGust(){
+            gust = document.getElementById("gust").value;
+            text_gust = document.getElementById("text_gust");
+            resultat_gust = document.getElementById("resultat_gust");
+            text_mida = document.getElementById("text_mida");
+            resultat_mida = document.getElementById("resultat_mida")
+                if((mida == 0) || (mida == 1)){
+                    resultat_mida.innerHTML="<p>1</p>"
+                    text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option selected value='1'>1 Bola</option><option value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 1 BOLA";    
+                    if(gust == "xocolata"){
+                        resultat_gust.innerHTML="<img src='img/unabolaxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                    }else if(gust == "maduixa"){
+                        resultat_gust.innerHTML="<img src='img/unabolamaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/unabolavainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                    }
+                }else if(mida == 2){
+                    resultat_mida.innerHTML="<p>2</p>"
+                    text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option selected value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 2 BOLES";  
+                    if(gust == "xocolata"){
+                        resultat_gust.innerHTML="<img src='img/duesbolesxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                    }else if(gust == "maduixa"){
+                        resultat_gust.innerHTML="<img src='img/duesbolesmaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/duesbolesvainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                    }
+                }else{
+                    resultat_mida.innerHTML="<p>3</p>"
+                    text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option value='2'>2 Boles</option><option selected value='3'>3 Boles</option></select> 3 BOLES";  
+                    if(gust == "xocolata"){
+                        resultat_gust.innerHTML="<img src='img/tresbolesxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                    }else if(gust == "maduixa"){
+                        resultat_gust.innerHTML="<img src='img/tresbolesmaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/tresbolesvainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled selected></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                    }
+                }
+        }
+
+        function triarTipus(){
+            tipus = document.getElementById("tipus").value;
+            resultat_tipus = document.getElementById("resultat_tipus");
+            text_tipus = document.getElementById("text_tipus");
+            if(tipus == "terrina"){
+                resultat_tipus.innerHTML="<img src='img/terrina.png' style='max-width:100%'>";
+                text_tipus.innerHTML="<select class='desplegable' id='tipus' onChange='triarTipus()''><option disabled></option><option selected value='terrina'>Terrina</option><option value='cucurutxo'>Cucurutxo</option></select> TERRINA";
+            }else{
+                resultat_tipus.innerHTML="<img src='img/cucurutxo.png' style='max-width:100%'>";
+                text_tipus.innerHTML="<select class='desplegable' id='tipus' onChange='triarTipus()''><option disabled></option><option value='terrina'>Terrina</option><option selected value='cucurutxo'>Cucurutxo</option></select> CUCURUTXO";
+        }
+        }
+
+        function triarMida(){
+            mida = document.getElementById("mida").value;
+            text_mida = document.getElementById("text_mida");
+            resultat_mida = document.getElementById("resultat_mida");
+            gust = document.getElementById("gust").value;
+            text_gust = document.getElementById("text_gust");
+            resultat_gust = document.getElementById("resultat_gust")
+                if((gust == 0) || (gust == "xocolata")){
+                    if(mida == "1"){
+                        resultat_gust.innerHTML="<img src='img/unabolaxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                        resultat_mida.innerHTML="<p>1</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option selected value='1'>1 Bola</option><option value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 1 BOLA";
+                    
+                    }else if(mida == "2"){
+                        resultat_gust.innerHTML="<img src='img/duesbolesxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                        resultat_mida.innerHTML="<p>2</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option selected value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 2 BOLES";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/tresbolesxocolata.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option selected value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> XOCOLATA";
+                        resultat_mida.innerHTML="<p>3</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option value='2'>2 Boles</option><option selected value='3'>3 Boles</option></select> 3 BOLES";
+                    }
+                }else if(gust == "maduixa"){
+                    if(mida == "1"){
+                        resultat_gust.innerHTML="<img src='img/unabolamaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                        resultat_mida.innerHTML="<p>1</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option selected value='1'>1 Bola</option><option value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 1 BOLA";
+                    
+                    }else if(mida == "2"){
+                        resultat_gust.innerHTML="<img src='img/duesbolesmaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                        resultat_mida.innerHTML="<p>2</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option selected value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 2 BOLES";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/tresbolesmaduixa.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option selected value='maduixa'>Maduixa</option><option value='vainilla'>Vainilla</option></select> MADUIXA";
+                        resultat_mida.innerHTML="<p>3</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option value='2'>2 Boles</option><option selected value='3'>3 Boles</option></select> 3 BOLES";
+                    }
+                }else{
+                    if(mida == "1"){
+                        resultat_gust.innerHTML="<img src='img/unabolavainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                        resultat_mida.innerHTML="<p>1</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option selected value='1'>1 Bola</option><option value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 1 BOLA";
+                    
+                    }else if(mida == "2"){
+                        resultat_gust.innerHTML="<img src='img/duesbolesvainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                        resultat_mida.innerHTML="<p>2</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option selected value='2'>2 Boles</option><option value='3'>3 Boles</option></select> 2 BOLES";
+                    }else{
+                        resultat_gust.innerHTML="<img src='img/tresbolesvainilla.png' style='max-width:100%'>";
+                        text_gust.innerHTML="<select class='desplegable' id='gust' onChange='triarGust()'><option disabled></option><option value='xocolata'>Xocolata</option><option value='maduixa'>Maduixa</option><option selected value='vainilla'>Vainilla</option></select> VAINILLA";
+                        resultat_mida.innerHTML="<p>3</p>";
+                        text_mida.innerHTML="<select class='desplegable' id='mida' onChange='triarMida()''><option disabled></option><option value='1'>1 Bola</option><option value='2'>2 Boles</option><option selected value='3'>3 Boles</option></select> 3 BOLES";
+                    }
+                }
+        }
+
+        function triarToppings(){
+            toppings = document.getElementById("toppings").value;
+            resultat_toppings = document.getElementById("resultat_toppings");
+            text_toppings = document.getElementById("text_toppings")
+            if(toppings == "kiwi"){
+                resultat_toppings.innerHTML="<img src='img/kiwi.png' style='max-width:100%'>";
+                text_toppings.innerHTML="<select class='desplegable' id='toppings' onChange='triarToppings()'><option disabled></option><option selected value='kiwi'>Kiwi</option><option value='crocant'>Crocant</option><option value='mikado'>Mikado</option></select> KIWI";
+            
+            }else if(toppings == "crocant"){
+                resultat_toppings.innerHTML="<img src='img/crocant.png' style='max-width:100%'>";
+                text_toppings.innerHTML="<select class='desplegable' id='toppings' onChange='triarToppings()'><option disabled></option><option value='kiwi'>Kiwi</option><option selected value='crocant'>Crocant</option><option value='mikado'>Mikado</option></select> CROCANT";
+            }else{
+                resultat_toppings.innerHTML="<img src='img/mikado.png' style='max-width:100%'>";
+                text_toppings.innerHTML="<select class='desplegable' id='toppings' onChange='triarToppings()'><option disabled></option><option value='kiwi'>Kiwi</option><option value='crocant'>Crocant</option><option selected value='mikado'>Mikado</option></select> MIKADO";
+            }
+        }
+        
+        function ferComanda(){
+            window.alert("Fet i enviat! Espera'ns amb gana!");
+        }
+        
+    </script>
+</body>
+</html>

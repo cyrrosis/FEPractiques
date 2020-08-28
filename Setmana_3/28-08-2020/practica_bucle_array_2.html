@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica bucle array 2</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style></style>
+</head>
+<body>
+    <input type="button" value="Clica" onClick="funcionar()" id="boto_funcionar">
+    <div id="capa_0"></div>
+    <div id="capa_1"></div>
+    <div id="capa_2"></div>
+    
+
+
+    <script>
+        var fotos = ['unabolamaduixa.png', 'duesbolesmaduixa.png', 'tresbolesmaduixa.png'];
+        var capa = 0;
+        var i = 0
+
+
+        function funcionar(){
+            for(i = 0;i < 3;i++){
+                capa = document.getElementById("capa_"+i);
+                capa.innerHTML="<img src=img/"+fotos[i]+">";
+            }   
+        }
+
+    </script>
+</body>
+</html>

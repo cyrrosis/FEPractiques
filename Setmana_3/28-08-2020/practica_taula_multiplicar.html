@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taula multiplicar</title>
+    <meta name="author" content="uptivya">
+    <style>
+        table{
+            text-align: center;
+            margin-top:30px;
+        }
+        th, td{
+            padding: 10px 20px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <label for="text_numero">Número: </label>
+    <input type="text" id="text_numero" placeholder="Número">
+    <input type="button" id="boto_calcular" value="calcula" onClick="calcular();">
+    <br>
+
+    <table id="taula_resultat">
+    </table>
+    
+
+
+    <script>
+        var i=0;;
+        var taula_resultat=0;
+        var text_numero=0;
+
+        function calcular(){
+            taula_resultat.innerHTML = "";
+            taula_resultat = document.getElementById("taula_resultat");
+            text_numero = document.getElementById("text_numero").value;
+            for(i = 0 ; i < 11 ; i++){
+                taula_resultat.innerHTML += "<tr><th>"+text_numero+"</th><td>"+i+"</td><td>"+text_numero * i+"</td></tr>";
+            }
+        };
+
+    </script>
+    <!--<script>
+        var i=0;;
+        var taula_resultat=0;
+        var text_numero=0;
+
+        function calcular(){
+            text_numero = document.getElementById("text_numero").value;
+            document.write("<table style='border:1px solid black'>")
+            for(i = 0 ; i < 11 ; i++){
+                document.write("<tr><th style='padding: 10px 20px; border:1px solid black;'>"+text_numero+"</th><td style='padding: 10px 20px; border:1px solid black;'>"+i+"</td><td style='padding: 10px 20px; border:1px solid black;'>"+text_numero * i+"</td></tr>") 
+            }
+            document.write("</table>")
+        };
+
+    </script>-->
+</body>
+</html>

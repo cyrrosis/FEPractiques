@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica questionari</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+        .inline-block{
+            display:inline-block;
+        }
+        .inline-block img{
+            width:15px;
+            height:15px;
+        }
+    </style>
+</head>    
+<body>
+    <form>
+        <label for="pregunta_0">Com es diuen els triangles amb tres angles iguals?</label>
+        <input type="text" placeholder="resposta" id="pregunta_0_text" name="pregunta_0_resposta">
+        <div class="inline-block" id="resposta_0"></div>
+        <br>
+
+        <label for="pregunta_1_text">Com són els seus angles?</label>
+        <select id="pregunta_1_text">
+            <option value="1" disabled selected>Escull la resposta</option>
+            <option value="0">Aguts</option>
+            <option value="2">Rectes</option>
+            <option value="3">Obtussos</option>
+        </select>
+        <div class="inline-block" id="resposta_1"></div>
+        
+
+        
+
+        <br>
+        <input type="button" value="Comprovar" id="boto_comprovar" onClick="comprovar()">
+    </form>
+    <br>
+    <br>
+    <div id="resultat"></div>
+
+
+
+
+
+
+    <script>
+        var respostes = ["Equilàters", 1];
+        var i = 0;
+        var contador_be = 0;
+        var contador_malament = 0;
+        var resultat = 0;
+
+        function comprovar(){
+            contador_be = 0;
+            contador_malament = 0;
+            for(i = 0;i < respostes.length; i++){
+                resposta_i = document.getElementById("resposta_"+i);
+                resultat_i = document.getElementById("resultat_"+i);
+                pregunta_i = document.getElementById("pregunta_"+i+"_text").value;
+                if(pregunta_i == respostes[i]){
+                    resposta_i.innerHTML="<img src='img/si.jpg'>";
+                    contador_be++;
+                }else{
+                    resposta_i.innerHTML="<img src='img/no.jpg'>";
+                    contador_malament++;
+                }
+            }
+            resultat.innerHTML="N'has fet "+contador_be+" de bé i "+contador_malament+" de malament."
+        };
+    </script>
+</body>
+</html>

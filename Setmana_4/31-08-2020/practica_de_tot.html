@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica de tot</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+        .resultat{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Sortejar" id="boto_sortejar" onclick="sortejar()">
+    <div id="resultat_sorteig"></div>
+
+
+    <br>
+    <br>
+    <br>
+    <input type="text" name="numero_1" id="text_numero_0" placeholder="Número 1">
+    <div class="resultat" id="resultat_0"></div>
+    <input type="text" name="numero_2" id="text_numero_1" placeholder="Número 2">
+    <div class="resultat" id="resultat_1"></div>
+    <input type="text" name="numero_3" id="text_numero_2" placeholder="Número 3">
+    <div class="resultat" id="resultat_2"></div><br><br>
+    <input type="button" value="Comprovar" id="boto_comprovar" onclick="comprovar()">
+    
+
+    <script>
+        var numeros = [];
+        var i = 0;
+        var resultat = 0
+        var numero = 0
+        function sortejar(){
+            resultat = document.getElementById("resultat_sorteig");
+            resultat.innerHTML = "<label>Resultat: </label><br>";
+            numeros = [];
+            for (i = 0; i < 6; i++){
+                numeros.push(Math.ceil(Math.random()*49));
+                resultat.innerHTML += numeros[i]+" ";
+            }
+        }
+        
+        function comprovar(){
+            for (i = 0; i < 3; i++){
+                numeros.push(Math.ceil(Math.random()*9));
+            };
+            for (i = 0; i < 3; i++){
+                
+                resultat = document.getElementById("resultat_"+i);
+                numero = document.getElementById("text_numero_"+i).value;
+                console.log(numeros);
+                if(numero < numeros[i]){
+                    resultat.innerHTML="Més gran";
+                }else if(numero == numeros[i]){
+                    resultat.innerHTML="Aquest és";
+                }else{
+                    resultat.innerHTML="Més petit";
+                }
+
+            };
+            
+        }
+    </script>
+</body>
+</html>

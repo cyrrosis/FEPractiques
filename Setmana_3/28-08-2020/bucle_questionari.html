@@ -15,6 +15,7 @@
             <option value="obtussos">Obtussos</option>
         </select>
         <div id="quadre_resposta_0"></div>
+
         <label>Nom angles del triangle equilàter</label>
         <select name="angles_triangles_equilaters" id="pregunta_1">
             <option value="aguts">Aguts</option>
@@ -22,6 +23,7 @@
             <option value="obtussos">Obtussos</option>
         </select>
         <div id="quadre_resposta_1"></div>
+        
         <label>Nom angles del triangle equilàter</label>
         <input type="radio" name="pregunta_2" value="aguts">
         <input type="radio" name="pregunta_2" value="rectes">
@@ -44,7 +46,7 @@
                 comprovar = document.getElementById("pregunta_"+i).value;
                 comprovar_radio = document.getElementsByName("pregunta_"+i).value;
                 pintar_resultat = document.getElementById("quadre_resposta_"+i);
-                if (comprovar == respostes[i] || comprovar_radio.checked == respostes[i]){
+                if (comprovar == respostes[i] || comprovar_radio == respostes[i]){
                     pintar_resultat.innerHTML="Correcte";
                 }else{
                     pintar_resultat.innerHTML="Incorrecte";

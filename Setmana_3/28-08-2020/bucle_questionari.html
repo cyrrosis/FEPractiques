@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Questionari bucle</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+
+</head>
+<body>
+    <form>
+        <label>Nom angles del triangle equilàter</label>
+        <select name="angles_triangles_equilaters" id="pregunta_0">
+            <option value="aguts">Aguts</option>
+            <option value="rectes">Rectes</option>
+            <option value="obtussos">Obtussos</option>
+        </select>
+        <div id="quadre_resposta_0"></div>
+        <label>Nom angles del triangle equilàter</label>
+        <select name="angles_triangles_equilaters" id="pregunta_1">
+            <option value="aguts">Aguts</option>
+            <option value="rectes">Rectes</option>
+            <option value="obtussos">Obtussos</option>
+        </select>
+        <div id="quadre_resposta_1"></div>
+        <label>Nom angles del triangle equilàter</label>
+        <input type="radio" name="pregunta_2" value="aguts">
+        <input type="radio" name="pregunta_2" value="rectes">
+        <input type="radio" name="pregunta_2" value="obtussos">
+        <div id="quadre_resposta_2"></div>
+        
+        <input type="button" id="boto_enviar" onclick="enviar()" value="Comprovar">
+        
+    </form>
+
+
+    <script>
+        var i = 0;
+        var respostes = ["aguts", "aguts", "aguts"];
+        var comprovar = 0;
+        var pintar_resultat = 0;
+        var comprovar_radio = 0;
+        function enviar(){
+            for (i = 0; i < respostes.length; i++){
+                comprovar = document.getElementById("pregunta_"+i).value;
+                comprovar_radio = document.getElementsByName("pregunta_"+i).value;
+                pintar_resultat = document.getElementById("quadre_resposta_"+i);
+                if (comprovar == respostes[i] || comprovar_radio.checked == respostes[i]){
+                    pintar_resultat.innerHTML="Correcte";
+                }else{
+                    pintar_resultat.innerHTML="Incorrecte";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

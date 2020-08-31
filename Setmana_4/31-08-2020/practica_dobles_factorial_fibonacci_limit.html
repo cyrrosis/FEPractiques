@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dobles, factorial, fibonacci.</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+
+</head>
+<body>
+    <h2>Dobles</h2>
+    <label for="text_numero_doble">Quantes vegades vols doblar el número 1: </label>
+    <input type="text" id="text_numero_doble" name="numero_doble">
+    <input type="button" id="boto_enviar_numero" value="Envia" onclick="doble()">
+    
+    <div id="resultat_doble"></div>
+
+    <label for="text_limit_doble">Límit de doblar el número 1: </label>
+    <input type="text" id="text_limit_doble" name="limit_doble">
+    <input type="button" id="boto_enviar_limit_doble" value="Envia" onclick="limitDoble()">
+    
+    <div id="resultat_limit_doble"></div>
+
+    <h2>Factorials</h2>
+    <label for="text_numero_factorial">Número a fer factorial: </label>
+    <input type="text" id="text_numero_factorial" name="numero_factorial">
+    <input type="button" id="boto_enviar_limit_factorial" value="Envia" onclick="factorial()">
+    
+    <div id="resultat_factorial"></div>
+
+    <label for="text_limit_factorial">Límit: </label>
+    <input type="text" id="text_limit_factorial" name="limit_factorial">
+    <input type="button" id="boto_enviar_factorial" value="Envia" onclick="limitFactorial()">
+    
+    <div id="resultat_limit_factorial"></div>
+
+    <h2>Fibonacci</h2>
+    <label for="text_numero_fibonacci">Número: </label>
+    <input type="text" id="text_numero_fibonacci" name="numero_fibonacci">
+    <input type="button" id="boto_enviar_fibonacci" value="Envia" onclick="fibonacci()">
+    
+    <div id="resultat_fibonacci"></div>
+
+    <label for="text_limit_fibonacci">Límit: </label>
+    <input type="text" id="text_limit_fibonacci" name="limit_fibonacci">
+    <input type="button" id="boto_enviar_limit_fibonacci" value="Envia" onclick="limitFibonacci()">
+    
+    <div id="resultat_limit_fibonacci"></div>
+
+    <script>
+        var numero = 0;
+        var resultat = 0;
+        var i = 0;
+        var operador = 1;
+        var limit = 0;
+        var vegades = 0;
+
+        function doble(){
+            var operador = 1;
+            resultat.innerHTML="";
+            numero = document.getElementById("text_numero_doble").value;
+            resultat = document.getElementById("resultat_doble");
+            for (i = 0; i < numero; i++){
+                operador = operador * 2;
+                resultat.innerHTML+="El resultat és "+operador+"<br>";
+            }
+            
+        }
+        
+        
+        function limitDoble(){
+            var operador = 1;
+            resultat.innerHTML="";
+            vegades = 0;
+            limit = document.getElementById("text_limit_doble").value;
+            resultat = document.getElementById("resultat_limit_doble");
+            while(operador < limit){
+                resultat.innerHTML+="Multiplicant 1 per 2 fins a assolir el límit escollit, l'últim número aconseguit és el "+operador+" i s'ha multiplicat "+vegades+" vegades <br>";
+                operador = operador * 2;
+                vegades++;
+            }
+            
+        }
+        
+        function factorial(){
+            numero = document.getElementById("text_numero_factorial").value;
+            resultat = document.getElementById("resultat_factorial");
+            for (i = 0; i < numero ; i++){
+                operador += operador * i;
+                
+            }
+            resultat.innerHTML+="El resultat és "+operador+"<br>"; 
+            
+        }
+
+        function limitFactorial(){
+            var operador = 1;
+            resultat.innerHTML="";
+            vegades = 0;
+            i = 0;
+            limit = document.getElementById("text_limit_factorial").value;
+            resultat = document.getElementById("resultat_limit_factorial");
+            while(operador < limit){
+                resultat.innerHTML+="Sumant factorials, l'últim ha estat el de "+i+" fins a arribar al límit escollit. L'últim resultat és "+operador+".<br>";
+                operador += operador * i;
+                vegades++;
+                i++
+            }
+            
+        }
+
+        function fibonacci(){
+            numero = document.getElementById("text_numero_fibonacci").value;
+            resultat = document.getElementById("resultat_fibonacci");
+            for (i = 0; i < numero ; i++){
+                operador += ;
+                
+            }
+            resultat.innerHTML+="El resultat és "+operador+"<br>"; 
+            
+        }
+
+        function limitFibonacci(){
+            var operador = 1;
+            resultat.innerHTML="";
+            vegades = 0;
+            i = 0;
+            limit = document.getElementById("text_limit_factorial").value;
+            resultat = document.getElementById("resultat_limit_factorial");
+            while(operador < limit){
+                resultat.innerHTML+="Sumant factorials, l'últim ha estat el de "+i+" fins a arribar al límit escollit. L'últim resultat és "+operador+".<br>";
+                operador += (operador += ;
+                vegades++;
+                i++
+            }
+            
+        }
+
+        
+    </script>
+</body>    
+</html>

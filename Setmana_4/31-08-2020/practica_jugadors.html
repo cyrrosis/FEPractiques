@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pràctica jugadors</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+
+    </style>
+</head>
+<body>
+    <label for="text_jugador">Jugadors: </label><br>
+    <input type="text" id="text_jugador" name="text_jugador" placeholder="Nom del jugador a afegir">
+    <input type="button" value="Afegir" id="afegir_jugador" onclick="afegirJugador()"><br>
+    <input type="text" id="text_jugador_treure" name="text_jugador_treure" placeholder="Nom del jugador a treure">
+    <input type="button" value="Treure" id="treure_jugador" onclick="treureJugador()">
+    
+    <div id="resultat"></div>
+
+
+    <script>
+        var jugador = 0;
+        var jugadors = [];
+        var resultat = 0;
+        var i = 0;
+        function afegirJugador(){
+            resultat.innerHTML="";
+            jugador = document.getElementById("text_jugador").value;
+            resultat = document.getElementById("resultat");
+            jugadors.push(jugador);
+            
+            for(i = 0; i < jugadors.length; i++){
+                resultat.innerHTML += jugadors[i]+"<br>";
+            }
+                
+        }
+        /*function treureJugador(){
+            resultat.innerHTML ="";
+            jugador = document.getElementById("text_jugador_treure").value;
+            resultat = document.getElementById("resultat");
+            for(i = 0; i < jugadors.length; i++){
+                if(jugadors[i] == jugador){
+                    jugadors.splice(i, 1);
+                    resultat.innerHTML += jugadors[i]+"<br>";
+                }else{
+                    resultat.innerHTML += jugadors[i]+"<br>";
+                }
+                
+            }
+        }*/
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Afegir elements arrays</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+
+    <script>
+        var dies = ["dilluns", "dimarts", "dimecres", "dijous", "divendres"];
+        var i = 0;
+        //dies.push("dissabte");
+        //dies.unshift("diumenge");
+        dies.pop();
+        dies.shift();
+        dies.splice(2, 0, "patata")
+        for (i = 0; i < dies.length; i++){
+            document.write(dies[i]+"<br>");
+        }
+
+    </script>
+</body>
+</html>

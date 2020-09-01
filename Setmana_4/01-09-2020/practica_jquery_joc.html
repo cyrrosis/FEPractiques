@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joc jquery</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .container #botons input{
+            width:100%;
+            padding:20px 0;
+        }
+        #botons{
+            margin-top:50px;
+        }
+        #imatges{
+            margin-top: 30px;
+            position:relative;
+        }
+        #imatges .col-3{
+            padding:0;
+            position:absolute;
+            display:none;
+        }
+        #imatges img{
+            width:100%;
+        }
+        #resultat_1{
+            left:0;
+        }
+        #resultat_2{
+            left:25%;
+        }
+        #resultat_3{
+            left:50%;
+        }
+        #resultat_4{
+            left:75%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="botons">
+            <div class="col-3">
+                <input type="button" value="Clica" id="boto_clicar_1">
+            </div>
+            <div class="col-3">
+                <input type="button" value="Clica" id="boto_clicar_2">
+            </div>
+            <div class="col-3">
+                <input type="button" value="Clica" id="boto_clicar_3">
+            </div>
+            <div class="col-3">
+                <input type="button" value="Clica" id="boto_clicar_4">
+            </div>
+        </div>
+        <div class="row" id="imatges">
+            <div class="col-3" id="resultat_1">
+                <img src="img/foto_1.jpg">
+            </div>
+            <div class="col-3" id="resultat_2">
+                <img src="img/foto_2.jpg">
+            </div>
+            <div class="col-3" id="resultat_3">
+                <img src="img/foto_3.jpg">
+            </div>
+            <div class="col-3" id="resultat_4">
+                <img src="img/foto_4.jpg">
+            </div>
+            
+            
+        </div>
+
+    </div>
+    <script lang="javascript">
+        $(function(){
+            $("#boto_clicar_1").click(function(){
+                $("#resultat_1").fadeToggle();
+                $("#resultat_4").fadeToggle();
+            });
+            $("#boto_clicar_2").click(function(){
+                $("#resultat_2").fadeToggle();
+                $("#resultat_3").fadeOut();
+                $("#resultat_4").fadeIn();
+            });
+            $("#boto_clicar_3").click(function(){
+                $("#resultat_1").fadeToggle();
+                $("#resultat_2").fadeOut();
+                $("#resultat_3").fadeToggle();
+                $("#resultat_4").fadeIn();
+            });
+            $("#boto_clicar_4").click(function(){
+                $("#resultat_1").fadeIn();
+                $("#resultat_3").fadeToggle();
+                $("#resultat_4").fadeOut(); 
+            });
+            
+
+
+
+        })
+
+    </script>
+</body>
+</html>

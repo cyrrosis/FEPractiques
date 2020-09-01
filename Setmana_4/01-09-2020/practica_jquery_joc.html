@@ -39,6 +39,13 @@
         #resultat_4{
             left:75%;
         }
+        #text_final{
+            display:none;
+            margin-top: 35%;
+        }
+        #contenidor_imatges{
+            position:relative;
+        }
         
     </style>
 </head>
@@ -58,45 +65,82 @@
                 <input type="button" value="Clica" id="boto_clicar_4">
             </div>
         </div>
-        <div class="row" id="imatges">
-            <div class="col-3" id="resultat_1">
-                <img src="img/foto_1.jpg">
+        <div id="contenidor_imatges">
+            <div class="row" id="imatges">
+                <div class="col-3" id="resultat_1">
+                    <img src="img/foto_1.jpg">
+                </div>
+                <div class="col-3" id="resultat_2">
+                    <img src="img/foto_2.jpg">
+                </div>
+                <div class="col-3" id="resultat_3">
+                    <img src="img/foto_3.jpg">
+                </div>
+                <div class="col-3" id="resultat_4">
+                    <img src="img/foto_4.jpg">
+                </div>        
             </div>
-            <div class="col-3" id="resultat_2">
-                <img src="img/foto_2.jpg">
-            </div>
-            <div class="col-3" id="resultat_3">
-                <img src="img/foto_3.jpg">
-            </div>
-            <div class="col-3" id="resultat_4">
-                <img src="img/foto_4.jpg">
-            </div>
-            
-            
         </div>
+        <div class="row">
+            <div class="col-12" id="text_final"><h1>Felicitats! T'has passat el joc.</h1></div>
+        </div>
+       
 
     </div>
     <script lang="javascript">
         $(function(){
+            var control_visible_1 = false;
+            var control_visible_2 = false;
+            var control_visible_3 = false;
+            var control_visible_4 = false;
+            
             $("#boto_clicar_1").click(function(){
                 $("#resultat_1").fadeToggle();
                 $("#resultat_4").fadeToggle();
+                control_visible_1 = !control_visible_1
+                control_visible_4 = !control_visible_4
+                if((control_visible_1)&&(control_visible_2)&&(control_visible_3)&&(control_visible_4)){
+                    $("#botons").fadeOut();
+                    $("#text_final").fadeIn();
+
+                }
+                
             });
             $("#boto_clicar_2").click(function(){
                 $("#resultat_2").fadeToggle();
                 $("#resultat_3").fadeOut();
                 $("#resultat_4").fadeIn();
+                control_visible_2 = !control_visible_2
+                control_visible_3 = false
+                control_visible_4 = true
+                if((control_visible_1)&&(control_visible_2)&&(control_visible_3)&&(control_visible_4)){
+                    $("#botons").fadeOut();
+                    $("#text_final").fadeIn();
+                }
             });
             $("#boto_clicar_3").click(function(){
                 $("#resultat_1").fadeToggle();
-                $("#resultat_2").fadeOut();
                 $("#resultat_3").fadeToggle();
                 $("#resultat_4").fadeIn();
+                control_visible_1 = !control_visible_1
+                control_visible_3 = !control_visible_3
+                control_visible_4 = true
+                if((control_visible_1)&&(control_visible_2)&&(control_visible_3)&&(control_visible_4)){
+                    $("#botons").fadeOut();
+                    $("#text_final").fadeIn();
+                }
             });
             $("#boto_clicar_4").click(function(){
                 $("#resultat_1").fadeIn();
                 $("#resultat_3").fadeToggle();
-                $("#resultat_4").fadeOut(); 
+                $("#resultat_4").fadeOut();
+                control_visible_1 = true
+                control_visible_3 = !control_visible_3
+                control_visible_4 = false
+                if((control_visible_1)&&(control_visible_2)&&(control_visible_3)&&(control_visible_4)){
+                    $("#botons").fadeOut();
+                    $("#text_final").fadeIn();
+                } 
             });
             
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica jquery 2</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        #capa_1{
+            background-color: teal;
+        }
+    </style>
+</head>    
+<body>
+    <label for="text_nom">Nom: </label>
+    <input type="text" id="text_nom" name="text_nom">
+    <br>
+    <div id="capa_1">
+        <h1>Holaaaaaaaaaaaaa</h1>
+    </div>
+    <input type="button" id="boto_enviar" value="Enviar">
+
+
+
+    <script lang="javascript">
+    $(function(){
+        $("#boto_enviar").click(function(){
+            $("#capa_1").html($("#text_nom"));
+        });
+
+
+
+
+    });
+    </script>
+</body>
+</html>

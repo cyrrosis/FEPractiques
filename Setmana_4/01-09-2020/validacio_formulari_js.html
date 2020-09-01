@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validacio formularis</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <style>
+        input{
+            width: 200px;
+        }
+    </style>
+    <script>
+        function validar(){
+            var text_nom = document.getElementById("text_nom").value;
+            var formulari = document.getElementById("formulari");
+            var pass = document.getElementById("text_password").value;
+            pass = pass.trim();
+            pass = pass.toLowerCase();
+            var correu_e = document.getElementById("text_correu_e").value;
+            var has_errors = false;
+            if(text_nom == ""){
+                window.alert("Nope");
+                has_errors = true;
+            }
+            if(text_nom.length < 3){
+                window.alert("El nom ha de tenir almenys 3 caràcters");
+                has_errors = true;
+            }
+            if(pass != "pepito"){
+                window.alert("MAAAAL");
+                has_errors = true;
+            }
+            if(correu_e.indexOf("@") == -1){
+                window.alert("No mi ciela")
+            }
+            if(!has_errors){
+                formulari.submit();
+                window.alert("Formulari enviat");
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="formulari">
+        <label for="text_nom">Nom: </label>
+        <input type="text" name="nom" id="text_nom" placeholder="Posa el teu nom"><br>
+        <label for="text_password">Password: </label>
+        <input type="text" name="password" id="text_password" placeholder="Posa la teva contrassenya"><br>
+        <label for="text_correu_e">Correu electrònic: </label>
+        <input type="text" name="correu_e" id="text_correu_e" placeholder="Posa el teu correu electrònic"><br>
+        
+        <input type="button" value="Envia" id="boto_enviar" onclick="validar()">
+
+    </form>
+</body>
+</html>

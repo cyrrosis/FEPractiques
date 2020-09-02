@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica imatges jquery</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        img{
+            width: 100%;
+        }
+        .container:first-child{
+            margin-top:100px;
+        }
+        #container_img_petites{
+            margin-top: 30px;
+        }
+        #imatge_gran{
+            max-height: 650px;
+            object-fit: cover;
+        }
+        .img_petites{
+            max-height: 150px;
+            object-fit: cover;
+            box-sizing: border-box;
+        }
+        .img_petites:hover{
+            cursor:pointer;
+            border: 10px solid blanchedalmond;
+        }
+        #foto_1{
+            border: 10px solid blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12"><img id="imatge_gran" src="img/foto_1.jpg"></div>
+        </div>
+        <div class="row" id="container_img_petites">
+            <div class="col-3"><img class="img_petites" id="foto_1" src="img/foto_1.jpg"></div>
+            <div class="col-3"><img class="img_petites" id="foto_2" src="img/foto_2.jpg"></div>
+            <div class="col-3"><img class="img_petites" id="foto_3" src="img/foto_3.jpg"></div>
+            <div class="col-3"><img class="img_petites" id="foto_4" src="img/foto_4.jpg"></div>
+            
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var clicat = false;
+            $(".img_petites").hover(function(){
+                $("#imatge_gran").attr("src","img/"+$(this).attr("id")+".jpg");
+                $("#foto_1").css("border","0");
+                if($(this).attr("id") == "foto_1"){
+                    $("#foto_1").css("border","10px solid blanchedalmond");
+                }else{
+                    $("#foto_1").css("border","0");
+                }
+            });
+
+            $(".img_petites").mouseleave(function(){
+                if(clicat == true){
+                    $("#imatge_gran").attr("src","img/"+$(this).attr("id")+".jpg");
+                    $(this).css("border","10px solid blanchedalmond")
+                    $("#foto_1").css("border","10px solid blanchedalmond");
+                    $("#foto_1").css("border","0");
+
+                }else{
+                    $("#imatge_gran").attr("src","img/foto_1.jpg");
+                }
+                    
+            });
+
+            $(".img_petites").click(function(){
+                $("#imatge_gran").attr("src","img/"+$(this).attr("id")+".jpg");
+                $("#foto_1").css("border","0");
+                if($(this).attr("id") == "foto_1"){
+                    $("#foto_1").css("border","10px solid blanchedalmond");
+                }else{
+                    $("#foto_1").css("border","0");
+                }
+                clicat = true;
+            });
+            
+            
+
+
+        });
+    </script>
+</body>
+</html>

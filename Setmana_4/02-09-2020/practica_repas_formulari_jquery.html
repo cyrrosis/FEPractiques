@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pràctica repàs jquery forms</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .resultats{
+            display:inline-block;
+            color:red;
+            font-weight: 300;
+            font-size: 12px;
+        }
+        .resultats p{
+            margin:0;
+        }
+        input, textarea{
+            border:1px solid rgb(168, 168, 168);
+            margin-right: 10px;
+            border-radius: 0;
+        }
+        label, #boto_enviar{
+            margin: 20px 20px;;
+        }
+        
+    </style>
+</head>
+<body> 
+    <form id="formulari">
+        <label for="text_nom">Nom: </label>
+        <input type="text" name="nom" id="text_nom" class="quadre" placeholder=" Nom">
+        <div class="resultats" id="resultat_1"></div><br>
+        <label for="text_email">E-mail: </label>
+        <input type="text" name="email" id="text_email" class="quadre" placeholder=" e-mail">
+        <div class="resultats" id="resultat_2"></div><br>
+        <label for="num_telefon">Telèfon: </label>
+        <input type="text" name="telèfon" id="num_telefon" class="quadre" placeholder=" Número de telèfon">
+        <div class="resultats" id="resultat_3"></div><br>
+        <label for="text_comentaris">Comentaris: </label>
+        <textarea name="comentaris" id="text_comentaris" class="quadre" placeholder=" Posa aquí els teus comentaris"></textarea>
+        <div class="resultats" id="resultat_4"></div><br>
+        <input type="button" value="Envia el formulari" id="boto_enviar"> 
+        
+    </form>
+
+    <script>
+        $(function(){
+            $("#boto_enviar").click(function(){
+                var has_errors = false;
+                $("#text_nom").val("");
+                $("#text_email").val("");
+                if ($("#text_nom").val().length < 2){
+                    has_errors = true;
+                    console.log("Falseee");
+                    $("#resultat_1").html("<p> *Escriu un nom real</p>");
+                    $("#text_nom").val("");
+                    $("#text_nom").css("box-shadow","0 0 2px red");
+                }
+                if (($("#text_email").val().indexOf("@") < 3) || ($("#text_email").val().indexOf("@") > $("#text_email").val().lastIndexOf(".")) || ($("#text_email").val().lastIndexOf(".") < 5) || (($("#text_email").val().lastIndexOf(".") - $("#text_email").val().indexOf("@")) < 2) ){
+                    $("#resultat_2").html("<p> *Escriu un email real</p>");
+                    $("#text_email").val("");
+                    $("#text_email").css("box-shadow","0 0 2px red");
+                }
+            });
+            $(".quadre").focus(function(){
+                $(this).css("box-shadow","0 0 0");
+            });
+            
+        
+        
+        });
+    </script>
+</body>
+</html>

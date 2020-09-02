@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <img id="foto_1" src="img/estiu.jpg"><br>
+    <input type="button" value="Foto 1" id="boto_foto_1">
+    <input type="button" value="Foto 2" id="boto_foto_2">
+    
+    <script>
+        $(function(){
+            $("#boto_foto_1").click(function(){
+                $("#foto_1").attr("src","img/primavera.jpg")
+            });
+            $("#boto_foto_2").click(function(){
+                $("#foto_1").attr("src","img/tardor.jpg")
+            });
+            
+
+        });
+    </script>
+</body>
+</html>

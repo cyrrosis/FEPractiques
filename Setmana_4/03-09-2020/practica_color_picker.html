@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica color picker jquery ui</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <style>
+        body{
+            font-family: 'Quicksand', sans-serif;
+            background-image: url("img/primavera.jpg");
+            background-size:cover;
+        }
+        #container_color_picker{
+            width:300px;
+            position: relative;
+            float: left;
+        }
+        #container_resultat{
+            width:300px;
+            height:300px;
+            margin: 30px 50px;
+            background-color: rgb(60,60,60);
+            position: relative;
+            float: left;
+        }
+        
+        .barra, .resultat, label{
+            margin:30px 0 0 30px;
+        }
+
+        #container_resultat h1{
+            color:white;
+            text-align: center;
+            margin-top: 44%;
+            font-size: 20px;
+            font-family: 'Krona One',sans-serif;
+        }
+        h1.col-8{
+            margin-top:230px;
+            margin-bottom:30px;
+            font-family: 'Krona One',sans-serif;
+            color:rgb(60,60,60);
+        }
+        input{
+            width:40px;
+            padding-left: 3px;
+            text-align: center;
+            position: absolute;
+            right:0;
+        }
+        #container_contingut{
+            padding:20px;
+            border: 10px solid rgb(60,60,60);
+            width: fit-content;
+            background-color: white;
+        }
+        #copyright{
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h1 class="offset-2 col-8">Color picker</h1>
+        </div>
+        <div class="row">
+            <div class="offset-2 col-8" id="container_contingut">
+                <div id="container_color_picker">
+                    <label for="resultat_0">Red: </label>
+                    <input type="text" class="resultat" id="resultat_0" name="resultat_red">
+                    <div class="barra" id="barra_0"></div>
+                    <label for="resultat_1">Green: </label>
+                    <input type="text" class="resultat" id="resultat_1" name="resultat_green">
+                    <div class="barra" id="barra_1"></div>
+                    <label for="resultat_2">Blue: </label>
+                    <input type="text" class="resultat" id="resultat_2" name="resultat_blue">
+                    <div class="barra" id="barra_2"></div>
+                </div>
+                <div id="container_resultat">
+                    <h1></h1>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <div id="copyright"><p>Imatge de fons: © Bryan Hurst a <a href="https://dribbble.com/bhurst">Dribbble</a></p></div>
+    
+    <script>
+        $( function() {
+            amplada = 0;
+            $( "#barra_0" ).slider({
+            orientation: "horizontal",
+            range: "min",
+            min: 0,
+            max: 255,
+            value: 60,
+            slide: function( event, ui ) {
+                $( "#resultat_0" ).val( ui.value );
+                $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            }
+            });
+            $( "#resultat_0" ).val( $( "#barra_0" ).slider( "value" ) );
+            $( "#barra_1" ).slider({
+            orientation: "horizontal",
+            range: "min",
+            min: 0,
+            max: 255,
+            value: 60,
+            slide: function( event, ui ) {
+                $( "#resultat_1" ).val( ui.value );
+                $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            }
+            });
+            $( "#resultat_1" ).val( $( "#barra_1" ).slider( "value" ) );
+            $( "#barra_2" ).slider({
+            orientation: "horizontal",
+            range: "min",
+            min: 0,
+            max: 255,
+            value: 60,
+            slide: function( event, ui ) {
+                $( "#resultat_2" ).val( ui.value );
+                $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            }
+            });
+            $( "#resultat_2" ).val( $( "#barra_2" ).slider( "value" ) );
+            
+            
+        
+            $("#resultat_0").keyup(function(){
+                amplada = $( "#resultat_0" ).val();
+                if($( "#resultat_0" ).val() <= 255){
+                    $("#barra_0 span").css("left",((amplada*100)/255)+"%");
+                    $("#barra_0 .ui-slider-range").css("width",((amplada*100)/255)+"%");
+                    $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                }else{
+                    $("#barra_0 span").css("left","100%");
+                    $("#barra_0 .ui-slider-range").css("width","100%");
+                    $("#container_resultat").css("background-color","rgb(255,"+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                    $( "#resultat_0" ).val("255");
+                }
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            });
+            $("#resultat_1").keyup(function(){
+                amplada = $( "#resultat_1" ).val();
+                if($( "#resultat_1" ).val() <= 255){
+                    $("#barra_1 span").css("left",((amplada*100)/255)+"%");
+                    $("#barra_1 .ui-slider-range").css("width",((amplada*100)/255)+"%");
+                    $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                }else{
+                    $("#barra_1 span").css("left","100%");
+                    $("#barra_1 .ui-slider-range").css("width","100%");
+                    $("#container_resultat").css("background-color","rgb("+$("#resultat_0" ).val()+",255,"+$( "#resultat_2" ).val()+")");
+                    $( "#resultat_1" ).val("255");
+                }
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            });
+            $("#resultat_2").keyup(function(){
+                amplada = $( "#resultat_2" ).val();
+                if($( "#resultat_2" ).val() <= 255){
+                    $("#barra_2 span").css("left",((amplada*100)/255)+"%");
+                    $("#barra_2 .ui-slider-range").css("width",((amplada*100)/255)+"%");
+                    $("#container_resultat").css("background-color","rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                }else{
+                    $("#barra_2 span").css("left","100%");
+                    $("#barra_2 .ui-slider-range").css("width","100%");
+                    $("#container_resultat").css("background-color","rgb("+$("#resultat_0" ).val()+","+$( "#resultat_1" ).val()+",255");
+                    $( "#resultat_2" ).val("255");
+                }
+                $( "#container_resultat h1" ).text("rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+                $("#container_contingut").css("border","10px solid rgb("+$( "#resultat_0" ).val()+","+$( "#resultat_1" ).val()+","+$( "#resultat_2" ).val()+")");
+            });
+
+            
+        } );
+    </script>
+</body>
+</html>

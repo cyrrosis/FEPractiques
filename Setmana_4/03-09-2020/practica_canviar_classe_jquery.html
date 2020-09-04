@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica canviar classe</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device width, initial-scale=1, shrink-to-fit=no"> 
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        .diferent{
+            font-size:40px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color:blanchedalmond;
+            background-color: teal;
+            margin: 30px 20px;
+            padding: 10px;
+            text-transform:uppercase;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Hola Maria</h1>
+        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nullam id dolor id nibh ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla.
+        Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas faucibus mollis interdum.</p>
+    </div>
+    <input type="button" value="Color" id="boto_color">
+    <script>
+        $(function(){
+            $("#boto_color").click(function(){
+                /*if($("h1").attr("class") == "diferent"){
+                    $("h1").removeClass("diferent")
+                }else{
+                    $("h1").addClass("diferent")
+                }*/
+                $("h1").toggleClass("diferent");
+
+            });
+
+
+        });
+    </script>
+</body>
+</html>

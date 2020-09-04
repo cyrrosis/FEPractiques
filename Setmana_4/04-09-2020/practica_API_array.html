@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica API array</title>
+    <meta name="author" content="uptivya">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        .noticia{
+            width:300px;
+            position:relative;
+            float: left;
+            border: 2px solid blanchedalmond;
+            margin:5px 0 0 5px;
+            padding:10px 30px;
+        }
+        #content{
+            display:flex;
+            flex-wrap: wrap;
+            margin-top:50px;
+            height:470px;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="boto" value="Enviar">
+    <div id="content"></div>
+
+    
+
+    <script>
+        $(function(){
+            var i = 0;
+            
+            $("#boto").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/users",function(data,status){
+                    for(i = 0; i < data.length; i++){
+                        var usuari = data[i]
+                        $("#content").append("<div class='noticia' id='noticia_"+usuari+"'><h3>"+usuari.name+"</h3><h4>"+usuari.username+"</h4><p>"+usuari.email+"</p><p>"+usuari.phone+"</p><p><a href='https://www."+usuari.website+"'>https://www."+usuari.website+"</a></p> ")
+                    }
+                });
+            });
+
+        });
+    </script>
+</body>    
+</html>

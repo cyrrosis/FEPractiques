@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica crida API</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="button" id="boto_noticia_1" value="Notícia 1">
+    <input type="button" id="boto_noticia_2" value="Notícia 2">
+    <input type="button" id="boto_noticia_3" value="Notícia 3">
+    <div id="noticia">
+
+    </div>
+
+    <script>
+        $(function(){
+            $("#boto_noticia_1").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/posts/1",function(data,status){
+                    $("#noticia").html("<h1>Notícia 1</h1><h2>"+data.title+"</h2><p>"+data.body+"</p>")
+                });
+            });
+            $("#boto_noticia_2").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/posts/2",function(data,status){
+                    $("#noticia").html("<h1>Notícia 2</h1><h2>"+data.title+"</h2><p>"+data.body+"</p>")
+                });
+            });
+            $("#boto_noticia_3").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/posts/3",function(data,status){
+                    $("#noticia").html("<h1>Notícia 3</h1><h2>"+data.title+"</h2><p>"+data.body+"</p>")
+                });
+            });
+            
+
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica Open Data BCN</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style>
+            #resultat{
+                display:flex;
+                flex-flow: wrap;
+            }
+            .perfil{
+                width:612px;
+                margin:20px 0 0 20px;
+                border:5px solid blanchedalmond;
+                padding:20px;
+                color:rgb(80, 73, 63);
+                font-family: 'Roboto Mono', monospace;
+            }
+            .perfil h1{
+                font-family: 'Oswald', sans-serif;
+                margin-bottom: 20px;
+            }
+            #boto{
+                margin:20px 0 0 20px;
+                padding:20px 30px;
+                border-radius: 0;
+                background-color: blanchedalmond;
+                border:5px solid blanchedalmond;
+                color:white;
+                font-weight: 900;
+                letter-spacing: 2px;
+            }
+            #boto:hover{
+                background-color: white;
+                color:rgb(80, 73, 63);
+            }
+            #boto:focus,#boto:active{
+                outline: none;
+                background-color: white;
+                color:white;
+                text-shadow:2px 2px 0 rgb(80, 73, 63);
+                border:5px solid rgb(80, 73, 63);
+            }
+            #convocatoria{
+                margin:30px 0;
+                font-family: 'Oswald', sans-serif;
+                font-size: 20px;
+
+            }
+            .convocatories{
+                padding-left: 30px;
+                margin-bottom: 0;
+                word-wrap:break-word;
+            }
+            #convocatoria::before{
+                content:"";
+                height:12px;
+                width:12px;
+                background-color:rgb(80, 73, 63);
+                display: inline-block;
+                margin-bottom:2px;
+                margin-right: 12px;
+            }
+            
+
+        </style>
+    </head>
+    <body>  
+        <input type="button" value="RECOLLIR DADES DEL CONCURS" id="boto">
+        <div id="resultat"></div>
+
+
+
+        <script>
+            $(function(){
+                $("#boto").click(function(){
+                    $.get("https://cors-anywhere.herokuapp.com/http://server.boka2.com/ws/seleccions.json",function(data,status){
+                        var i = 0;
+                        var array = data.Seleccions
+                        for(i = 0; i < array.length; i++){
+                            var places = data.Seleccions[i];
+                            var a = 0;
+                            var convocatoria = data.Seleccions[i].convocatories
+                            for(a = 0; a < convocatoria.length; a++){
+                                var convocatoria = data.Seleccions[i].convocatories[a];
+                                $("#resultat").append("<div class='perfil'><h1>"+places.title+"</h1><p> Nombre de places: "+places.nombrePlaces+"</p><p>Ens: "+places.ens+"</p><h2 id='convocatoria'>Convocatòries</h2><div class='convocatories'><p>Pàgina web: "+convocatoria.url+"</p><p>Document: "+convocatoria.doc+"</p><p>Títol: "+convocatoria.title+"</p></div></div>")
+                            }
+                        }
+                        
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

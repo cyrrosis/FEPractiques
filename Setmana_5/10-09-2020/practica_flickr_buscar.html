@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica Flickr</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style>
+            #resultat{
+                display:flex;
+                flex-flow: wrap;
+            }
+            h1{
+                font-family: 'Oswald', sans-serif;
+                margin-bottom: 20px;
+            }
+            h2{
+                margin-bottom: 20px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 20px;
+                color:white;
+
+            }
+            p{
+                color:white;
+                font-weight: 200;
+                letter-spacing: 0.1rem;
+                margin-bottom: 40px;
+            }
+            #boto{
+                margin:20px 0 0 20px;
+                padding:20px 30px;
+                border-radius: 0;
+                background-color: blanchedalmond;
+                border:5px solid blanchedalmond;
+                color:white;
+                font-weight: 900;
+                letter-spacing: 2px;
+                transition:.3s;
+            }
+            #boto:hover{
+                background-color: white;
+                color:rgb(80, 73, 63);
+            }
+            #boto:focus,#boto:active{
+                outline: none;
+                background-color: blanchedalmond;
+                color:white;
+                text-shadow:2px 2px 0 rgb(80, 73, 63);
+                border:5px solid rgb(80, 73, 63);
+            }
+            #contingut{
+                display:inline-block;
+            }
+            .items-foto{
+                border: 2px solid teal;
+            }
+            .items-foto h2,.items-foto p{
+                display:none;
+            }
+            .items-foto img{
+                height:300px;
+            }
+            #container{
+                position:relative;
+            }
+            #desplegable-esquerre{
+                top:0;
+                width:34%;
+                height:100vh;
+                position:fixed;
+                top:0;
+                right:0;
+                background-color: black;
+                padding:40px;
+                overflow: scroll;
+                display:none;
+            }
+            #desplegable-foto{
+                text-align: center;
+                width:100%;
+                background-color:blanchedalmond;
+                margin-bottom: 40px;
+            }
+            #desplegable-foto img{
+                max-width:100%;
+                max-height:800px;
+                object-fit: cover;
+            }
+            #desplegable-foto-info{
+                width:100%;
+                height:20px;
+                border-top: 1px solid grey;
+                padding-top: 40px;
+
+            }
+            #desplegable-foto-info h2{
+                line-height: 1;
+            }
+            #cercador{
+                border-bottom: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cercador">
+            <input type="text" name="cerca-text" id="cerca-text" placeholder="Escriu la teva cerca">
+            <input type="button" value="BUSCA A FLICKR" id="boto">
+            <select id="elementspp">
+                <option value="25" selected>25 elements per pàgina</option>
+                <option value="50">50 elements per pàgina</option>
+                <option value="100">100 elements per pàgina</option>
+            </select>
+        </div>
+        <div id="container">
+            <div id="contingut">
+                <div id="resultat">
+            
+                </div>
+                <div id="paginacio">
+                </div>
+            </div>
+            <div id="desplegable-esquerre">
+                <div id="desplegable-foto">
+                    <img src="img/banner_1_petit.jpg">
+                </div>
+                <div id="desplegable-foto-info">
+                    <h2>- A"+photo.title+"</h2>
+                    <p>Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                    Etiam porta sem malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                    Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Sed posuere consectetur est at lobortis. Nulla vitae elit libero, a pharetra augue. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui.</p>
+                </div>
+
+            </div> 
+        </div>
+        
+        
+
+
+        <script>
+            $(function(){    
+                function ensenyar_desplegable(){
+                    $(".items-foto").click(function(){
+                        var imatge = $(this).children("img").attr("src");
+                        var foto_titol = $(this).children("h2").text();
+                        var foto_desc = $(this).children ("p").text()
+                        $("#desplegable-esquerre").show();
+                        $("#contingut").css("width", 66+"%")
+                        $("#desplegable-foto img").attr("src",imatge);
+                        $("#desplegable-foto-info h2").text(foto_titol);
+                        $("#desplegable-foto-info p").text(foto_desc);
+                    });
+                };         
+                $("#boto").click(function(){
+                    $("#resultat").html("");
+                    var cerca = $("#cerca-text").val();
+                    var control_elementspp = $("#elementspp");
+                    var elementspp = 0;
+                    if(control_elementspp.val() == "25"){
+                        elementspp = 25;
+                    }else if(control_elementspp.val() == "50"){
+                        elementspp = 50;
+                    }else{
+                        elementspp = 100;
+                    }
+                    array_url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0558dda4ed8ce29a002c7f6cc7e3a51e&text="+cerca+"&per_page="+elementspp+"&page=1&extras=description&format=json&nojsoncallback=1"
+                    $.get(array_url,function(data,status){
+                        var i = 0;
+                        var photo_array = data.photos.photo;
+                        var photo_url = 0;
+                        for(i = 0; i < photo_array.length; i++){
+                            photo = photo_array[i];
+                            photo_url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret+".jpg";
+                            title = photo.title;
+                            
+                            $("#resultat").append("<div class='items-foto'><img src="+photo_url+"><h2>"+photo.title+"</h2><p>"+photo.description._content+"</p></div>");
+                        }
+                        $("#paginacio").html("")
+                        for(i = 1; i < 10; i++){
+                            if(data.photos.page < 10 && data.photos.page <= data.photos.pages){
+                                $("#paginacio").append("<div class='numeros-paginacio'><input type='button' value='"+i+"' id='boto_pagina_"+i+"' class='boto-paginacio'</div>");
+                            }
+                        }
+                        if(data.photos.pages >= 10){
+                            $("#paginacio").append("<select id='paginacio_mes_10'></select>");
+                            for(i = 10; i < data.photos.pages; i++){
+                                $("#paginacio_mes_10").append("<option value='"+i+"' name='"+i+"'id='boto_pagina_"+i+"'>"+i+"</option>")
+                            }
+                        }
+                        $(".boto-paginacio").click(function(){
+                            $("#resultat").html("");
+                            var pagina = $(this).val();
+                            $("#contingut").css("width", 100+"%")
+                            $("#desplegable-esquerre").hide();
+                            array_url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0558dda4ed8ce29a002c7f6cc7e3a51e&text="+cerca+"&per_page="+elementspp+"&page="+pagina+"&extras=description&format=json&nojsoncallback=1"
+                            
+                            
+
+                            $.get(array_url,function(data,status){
+                                photo_array = data.photos.photo
+                                for(i = 0; i < photo_array.length; i++){
+                                    photo = photo_array[i];
+                                    photo_url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret+".jpg";
+                                    $("#resultat").append("<div class='items-foto'><img src="+photo_url+"><h2>"+photo.title+"</h2><p>"+photo.description._content+"</p></div>");
+                                }
+                                $(ensenyar_desplegable());
+                            })
+                        });
+                        $(ensenyar_desplegable());
+                        
+                        
+                        //Jugar amb la variable de page de l'enllaç. Enlloc de 1 hem de fer-la variable.
+                        
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

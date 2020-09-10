@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica Flickr</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style>
+            #resultat{
+                display:flex;
+                flex-flow: wrap;
+            }
+            h1{
+                font-family: 'Oswald', sans-serif;
+                margin-bottom: 20px;
+            }
+            h2{
+                margin:30px 0 20px;
+                font-family: 'Oswald', sans-serif;
+                font-size: 20px;
+
+            }
+            #boto{
+                margin:20px 0 0 20px;
+                padding:20px 30px;
+                border-radius: 0;
+                background-color: blanchedalmond;
+                border:5px solid blanchedalmond;
+                color:white;
+                font-weight: 900;
+                letter-spacing: 2px;
+                transition:.3s;
+            }
+            #boto:hover{
+                background-color: white;
+                color:rgb(80, 73, 63);
+            }
+            #boto:focus,#boto:active{
+                outline: none;
+                background-color: blanchedalmond;
+                color:white;
+                text-shadow:2px 2px 0 rgb(80, 73, 63);
+                border:5px solid rgb(80, 73, 63);
+            }
+            .items-foto{
+                border: 2px solid teal;
+            }
+            #container{
+                position:relative;
+            }
+            #desplegat_esquerre{
+                width:34%;
+                position: fixed;
+                right:0;
+                background-color: black;
+                padding:40px;
+            }
+            #foto{
+                text-align: center;
+                width:100%;
+                height:400px;
+                background-color:blanchedalmond;
+            }
+            #foto img{
+                max-width:100%;
+                max-height:400px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="cercador">
+            <input type="text" name="cerca-text" id="cerca-text" placeholder="Escriu la teva cerca">
+            <input type="button" value="BUSCA A FLICKR" id="boto">
+            <select id="elementspp">
+                <option value="10" selected>10 elements per pàgina</option>
+                <option value="25">25 elements per pàgina</option>
+                <option value="50">50 elements per pàgina</option>
+                <option value="100">100 elements per pàgina</option>
+            </select>
+        </div>
+        <div id="container">
+            <div id="contingut">
+                <div id="resultat">
+            
+                </div>
+                <div id="paginacio">
+                </div>
+            </div>
+            <div id="desplegat_esquerre">
+                <div id="foto">
+                    <img src="#">
+                </div>
+
+            </div> 
+        </div>
+        
+        
+
+
+        <script>
+            $(function(){
+                $("#desplegat_esquerre").css("height","calc(100vh - "+$("#cercador").css("height"));
+                $("#boto").click(function(){
+                    $("#resultat").html("");
+                    var cerca = $("#cerca-text").val();
+                    var control_elementspp = $("#elementspp");
+                    var elementspp = 0;
+                    if(control_elementspp.val() == "10"){
+                        elementspp = 10;
+                    }else if(control_elementspp.val() == "25"){
+                        elementspp = 25;
+                    }else if(control_elementspp.val() == "50"){
+                        elementspp = 50;
+                    }else{
+                        elementspp = 100;
+                    }
+                    array_url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0558dda4ed8ce29a002c7f6cc7e3a51e&text="+cerca+"&per_page="+elementspp+"&page=1&format=json&nojsoncallback=1"
+                    $.get(array_url,function(data,status){
+                        var i = 0;
+                        var photo_array = data.photos.photo;
+                        var photo_url = 0;
+                        for(i = 0; i < photo_array.length; i++){
+                            photo = photo_array[i];
+                            photo_url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret+".jpg";
+                            
+                            $("#resultat").append("<div class='items-foto'><h1>- "+photo.title+"</h1><br><img src="+photo_url+"></div>");
+                        }
+                        for(i = 1; i < data.photos.perpage; i++){
+                            if(i < 10){
+                                $("#paginacio").html("")
+                                $("#paginacio").append("<div class='numeros-paginacio'><input type='button' value='"+i+"' id='boto_pagina_"+i+"' class='boto-paginacio'</div>");
+                            }
+                        }
+                        $(".boto-paginacio").click(function(){
+                            var pagina = $(this).val();
+                            array_url = "https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=0558dda4ed8ce29a002c7f6cc7e3a51e&text="+cerca+"&per_page="+elementspp+"&page="+pagina+"&format=json&nojsoncallback=1"
+                            $("#resultat").html("");
+                            $.get(array_url,function(data,status){
+                                photo_array = data.photos.photo
+                                for(i = 0; i < photo_array.length; i++){
+                                    photo = photo_array[i];
+                                    photo_url = "https://farm"+photo.farm+".staticflickr.com/"+photo.server+"/"+photo.id+"_"+photo.secret+".jpg";
+                                    $("#resultat").append("<div class='items-foto'><h1>- "+photo.title+"</h1><br><img src="+photo_url+"></div>");
+                                }
+                            })
+                            
+                            
+                            
+                        })
+
+                        
+                        //Jugar amb la variable de page de l'enllaç. Enlloc de 1 hem de fer-la variable.
+                        
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

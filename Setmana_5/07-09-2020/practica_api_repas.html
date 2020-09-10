@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica Simmons Bootstrap</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style>
+            p{
+                margin:20px 0 20px 30px;
+            }
+        </style>
+    </head>
+    <body>  
+        <input type="button" value="Enviar" id="boto">
+        <div id="resultat"></div>
+
+
+
+        <script>
+            $(function(){
+                $("#boto").click(function(){
+                    $.get("https://jsonplaceholder.typicode.com/users",function(data,status){
+                        var i = 0;
+                        var user = data[0];
+                        $("#resultat").html("");
+                        for(i = 0; i < data.length; i++){
+                            var user = data[i]
+                            var address = user.address
+                            $("#resultat").append("<p>"+address.street+", "+address.suite+" de la ciutat de "+address.city+" ("+address.zipcode+").</p><hr>"); 
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

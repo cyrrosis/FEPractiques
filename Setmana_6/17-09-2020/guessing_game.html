@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guessing Game</title>
+    <meta name="author" content="uptivya">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8">
+    <style>
+        #container{
+            width: 500px;
+            position:relative;
+            margin: 50px auto;
+        }
+            
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Number guessing game</h1>
+        <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+        <div id="form">
+            <label>Enter a guess: </label>
+            <input type="text" id="guess_text" class="guess_text" placeholder="Number" name="guess_value">
+            <input type="button" id="boto_enviar" class="boto_enviar" value="Sumbit the answer">
+        </div>
+        <div class="resultParas">
+            <p class="guesses"></p>
+            <p class="lastResult"></p>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+    
+
+    <script>
+        const guesses = document.querySelector(".guesses");
+        const lastResult = document.querySelector(".lastResult");
+        const lowOrHi = document.querySelector(".lowOrHi");
+
+        const guessValue = document.querySelector(".guess_text")
+        const guessSubmit = document.querySelector(".boto_enviar")
+
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let guessCount = 1;
+        let resetButton;
+
+        function checkGuess(){
+            let userGuess = Number(guessValue.value)
+            if (guessCount == 1){
+                guesses.textContent("Last guess: ")
+            }
+            guesses.textContent += guessValue+" ";
+            if(guessValue == randomNumber){
+                lastResult.textContent="Congratulations! You won the game.";
+                lastResult.style.backgroundColor="green";
+                lowOrHi.textContent="";
+                setGameOver();
+            }else if(guessValue == 10){
+                lastResult.textContent="Wrong! You already tried it 10 times";
+                lastResult.style.backgroundColor="red"
+                setGameOver;
+            }else{
+                lastResult.style.backgroundColor="red"
+                lastResult.textContent="Wrong!"
+                if(guessValue < randomNumber){
+                    lowOrHi.textContent="You should reach higher"
+                }else if(guessValue > randomNumber){
+                    lowOrHi.textContent="You should reach lower"
+                }
+            }
+            guessCount++
+            guessField.value=""
+            guessField.focus();
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica Web services</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/5c757390c0.js" crossorigin="anonymous"></script>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <input type="button" value="Envia" id="boto">
+        <div id="resultat">
+
+        </div>
+        <script>
+            $(function(){
+                $("#boto").click(function(){
+                    $.get("http://localhost:3000/customers", function(data,status){
+                        $("#resultat").append("<p>"+data[0].CustomerID+"</p>")
+                        console.log(data[0])
+                    });
+            
+                    
+                })
+
+
+            })
+        </script>
+    </body>
+</html>

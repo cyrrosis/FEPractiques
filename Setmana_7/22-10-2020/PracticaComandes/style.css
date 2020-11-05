@@ -1,0 +1,82 @@
+#resultat{
+    display:flex;
+    flex-flow: wrap;
+    margin-right:2.5%;
+}
+.targetes_client{
+    width:30%;
+    margin:2.5% 0 0 3%;
+    border:5px solid blanchedalmond;
+    padding:40px;
+    color:rgb(80, 73, 63);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+}
+h1{
+    font-family: 'Oswald', sans-serif;
+    margin-bottom: 20px;
+}
+h2{
+    margin:30px 0 20px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+
+}
+#boto{
+    margin:2.5% 0 0 3%;
+    padding:20px 30px;
+    border-radius: 0;
+    background-color: blanchedalmond;
+    border:5px solid blanchedalmond;
+    color:white;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+#boto:hover{
+    background-color: white;
+    color:rgb(80, 73, 63);
+}
+#boto:active{
+    outline: none;
+    background-color: white;
+    color:white;
+    text-shadow:2px 2px 0 rgb(80, 73, 63);
+    border:5px solid rgb(80, 73, 63);
+}
+#boto:focus{
+    outline: none;
+}
+.clicable{
+    color: rgb(131, 121, 108);
+}
+.clicable:hover{
+    text-decoration: none;
+    color: rgb(199, 31, 199);
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(80, 73, 63);
+}
+
+
+@media screen and (max-width:1300px){
+    .targetes_client{
+        width:46.8%;
+        margin:3% 0 0 3%;
+    }
+    #boto{
+        margin:3% 0 0 3%;
+    }
+}
+@media screen and (max-width:900px){
+    .targetes_client{
+        width:100%;
+        margin:0;
+        margin-bottom:30px
+    }
+    #boto{
+        margin:30px 30px 0;
+    }
+    #resultat{
+        margin:30px;
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Practica comandes webservices</title>
+        <meta name="author" content="uptivya">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/5c757390c0.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <link type="text/css" rel="stylesheet" href="style.css">
+    </head>
+    <body>  
+        <input type="button" value="RECOLLIR DADES DELS CLIENTS" id="boto">
+        <div id="resultat">
+            <!--
+            <div class='targetes_client'>
+                <h1>CompanyName</h1>
+                <h2>ContactName - ContactTitle<h2>
+                <div class="contacte">
+                    <h3>Dades de contacte</h3>
+                    <div class="item-acces">
+                        <ul>
+                            <li>Country</li>
+                            <li>City</li>
+                            <li>Address</li>
+                            <li>Phone</li>
+                            <li>Fax</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        -->
+        </div>
+
+        
+
+
+
+        <script>
+            $(function(){
+                $("#boto").click(function(){
+                    $("#resultat").html("");
+                    $.get("http://localhost:3000/clients",function(data,status){
+                        var i = 0;
+                        for(i = 0; i < data.length; i++){
+                            var clients = data[i];
+                            var CompanyName = clients.CompanyName;
+                            var ContactName = clients.ContactName;
+                            var ContactTitle = clients.ContactTitle;
+                            var Address = clients.Address;
+                            var City = clients.City;
+                            var Country = clients.Country;
+                            var Phone = clients.Phone;
+                            var Fax = clients.Fax
+
+                            if(CompanyName == null){
+                                CompanyName = "Fax desconegut";
+                            }
+                            if(ContactName == null){
+                                ContactName = "Contact name desconegut";
+                            }
+                            if(ContactTitle == null){
+                                ContactTitle = "Contact title desconegut";
+                            }
+                            if(Address == null){
+                                Address = "Adreça desconeguda";
+                            }
+                            if(City == null){
+                                City = "Ciutat desconeguda";
+                            }
+                            if(Country == null){
+                                Country = "País desconegut";
+                            }
+                            if(Phone == null){
+                                Phone = "Telèfon desconegut";
+                            }
+                            if(Fax == null){
+                                Fax = "Fax desconegut";
+                                
+                            }
+                            
+
+                            $("#resultat").append("<div class='targetes_client'><h1>"+CompanyName+"</h1><h2>"+ContactName+" - "+ContactTitle+"<h2><div class='contacte'><h3>Dades de contacte</h3><div class='item-acces'><ul><li>"+Country+"</li><li>"+City+"</li><li>"+Address+"</li><li><a class='clicable' href='tel: "+Phone+"'>"+Phone+"</a></li><li><a class='clicable' href='tel: "+Fax+"'>"+Fax+"</a></li></ul></div></div></div>")
+                        }
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

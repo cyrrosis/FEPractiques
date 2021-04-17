@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica estacions</title>
+    <meta name="author" content="uptivya">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&display=swap" rel="stylesheet">
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+        }
+        #contingut_estiu, #contingut_tardor, #contingut_hivern, #contingut_primavera{
+            margin-top: 150px;
+            display:none;
+            height:800px;
+            background-color: white;
+            padding: 100px;
+            position: relative;
+        }
+        #contingut_estiu p, #contingut_tardor p, #contingut_hivern p, #contingut_primavera p{
+            font-size: 18px;
+            position: relative;
+        }
+        
+        h1, .preu{
+            font-family: 'Krona One', sans-serif;
+            font-size: 60px;
+            margin-bottom:30px;
+        }
+        
+        .imatge{
+            padding:20px;
+            width:fit-content;
+            position:relative;
+            float: left;
+        }
+        .imatge img{
+            max-height: 300px;
+            max-width: 250px;
+            width:auto;
+        }
+        #imatge_estiu{
+            border: 8px solid blanchedalmond;
+            margin-right: 30px;
+        }
+        #contingut_estiu h1{
+            color:blanchedalmond;
+        }
+        #imatge_primavera{
+            border: 8px solid rgb(4, 182, 49);
+            margin-right: 30px;
+        }
+        #contingut_primavera h1{
+            color: rgb(4, 182, 49);
+        }
+        #imatge_tardor{
+            border: 8px solid  rgb(112, 28, 94);
+            margin-right: 30px;
+        }
+        #contingut_tardor h1{
+            color: rgb(112, 28, 94);
+        }
+        #imatge_hivern{
+            border: 8px solid rgb(21, 235, 199);
+            margin-right: 30px;
+        }
+        #contingut_hivern h1{
+            color:rgb(21, 235, 199);
+        }
+        
+        .preu{
+            position:absolute;
+            bottom: 50px;
+            right:50px;
+            line-height: 1;
+            margin:0;
+            text-shadow: 5px 5px blanchedalmond;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="row">
+            <div class="offset-2 col-8" class="contingut" id="contingut_primavera">
+                <h1>Primavera</h1>
+                <div class="imatge" id="imatge_primavera">
+                    <img src="img/pprimavera.jpg" alt="gerro amb flors">
+                </div>
+                <p>És primavera i comença a sortir el color. Les temperatures pugen i no voldràs ser l'únic/a sense un gerro amb ple de flors.</p>
+                <label class="preu">96€</label>
+            </div>
+            <div class="offset-2 col-8" class="contingut" id="contingut_estiu">
+                <h1>Estiu</h1>
+                <div class="imatge" id="imatge_estiu">
+                    <img src="img/pestiu.jpg" alt="sandàlies hawaianas">
+                </div>
+                <p>Emporta't aquestes sandàlies tan estiuenques i divertides perquè ho dic jo, perquè puc.</p>
+                <label class="preu">125€</label>
+                
+            </div>
+            <div class="offset-2 col-8" class="contingut" id="contingut_hivern">
+                <h1>Hivern</h1>
+                <div class="imatge" id="imatge_hivern">
+                    <img src="img/phivern.jpg" alt="gorro hivern">
+                </div>
+                <p>Quan arriba la fred, posa't un gorro mainstream per una persona tan mainstream com tu.</p>
+                <label class="preu">102€</label>
+            </div>
+            <div class="offset-2 col-8" class="contingut" id="contingut_tardor">
+                <h1>Tardor</h1>
+                <div class="imatge" id="imatge_tardor">
+                    <img src="img/ptardor.jpg" alt="paravent">
+                </div>
+                <p>Aquí venem un paravent que realment també podríem vendre a la primavera. Però és igual, és groc, és bonic.</p>
+                <label class="preu">186€</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function(){
+            var d = new Date();
+            var dia = d.getDate();
+            var mes = d.getMonth();
+            var hora = d.getHours();
+            if((mes == 11 && (((dia >= 21) && (hora >= 4)) || dia > 21)) || (mes == 0) || (mes == 1) || (mes == 2 && (((dia<= 21) && (hora <4)) || dia < 21))){
+                $("#contingut_hivern").show();
+                $("body").css("background-image","url('img/hivern.jpg')")
+                /*resultat.innerHTML="<img src='img/hivern.jpg' style='margin: 0 auto 15px;display:block;max-height:80%; max-width:95%'><p>És hivern i no se t'acudeixi fer res que no sigui xocolata calenta, manta i Netflix.</p>";*/
+            }else if((mes == 2 && (((dia >= 21) && (hora >= 4)) || dia > 21)) || (mes == 3) || (mes == 4) || (mes == 5 && (((dia<= 21) && (hora <4)) || dia < 21))){
+                $("#contingut_primavera").show();
+                $("body").css("background-image","url('img/primavera.jpg')")
+                /*resultat.innerHTML="<img src='img/primavera.jpg' style='margin: 0 auto 15px;display:block;max-height:80%; max-width:95%'><p>La primavera la sang altera i l'alèrgia accelera.</p>";*/
+            }else if((mes == 5 && (((dia >= 21) && (hora >= 4)) || dia > 21)) || (mes == 6) || (mes == 7) || (mes == 8 && (((dia<= 21) && (hora <4)) || dia < 21))){
+                $("#contingut_estiu").show();
+                $("body").css("background-image","url('img/estiu.jpg')")
+                /*resultat.innerHTML="<img src='img/estiu.jpg' style='margin: 0 auto 15px;display:block;max-height:80%; max-width:95%'><p>Tots volem fer vacances però fot tanta calor que al final acabes 24h davant el ventilador.</p>";*/
+            }else if((mes == 8 && (((dia >= 21) && (hora >= 4)) || dia > 21)) || (mes == 9) || (mes == 10) || (mes == 11 && (((dia<= 21) && (hora <4)) || dia < 21))){
+                $("#contingut_tardor").show();
+                $("body").css("background-image","url('img/tardor.jpg')")
+                /*resultat.innerHTML="<img src='img/tardor.jpg' style='margin: 0 auto 15px;display:block;max-height:80%; max-width:95%'><p>Plou i cauen les fulles però els colors i les temperatures i tot és tan bonic que, oh! Primavera o tardor sempre.</p>";*/
+            }
+        });
+    </script>
+</body>
+</html>
